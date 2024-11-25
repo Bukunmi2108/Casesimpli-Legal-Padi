@@ -7,8 +7,8 @@ const Features = () => {
   return (
     <section className="max-w-7xl mx-auto flex flex-col py-24 gap-12">
         <div className="flex flex-col justify-start items-center gap-6">
-            <div className="text-black text-4xl  md:text-5xl font-bold font-lato leading-10">Features of Legal Padi</div>
-            <div className="text-center text-primary-text text-md md:taxt-lg font-normal font-inter leading-normal">Explore the exceptional features Legal Padi has for you</div>
+            <div className="text-black xs:text-2xl sm:text-4xl md:text-5xl font-bold font-lato text-center">Features of Legal Padi</div>
+            <div className="text-center text-primary-text xs:text-xs sm:text-md md:taxt-lg font-normal font-inter leading-normal">Explore the exceptional features Legal Padi has for you</div>
         </div>
 
         <div className='flex flex-col w-full md:px-12 px-4 gap-16'>
