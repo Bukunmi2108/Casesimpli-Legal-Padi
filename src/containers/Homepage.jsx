@@ -15,7 +15,7 @@ const Homepage = () => {
 
 
 
-        <section className="flex flex-col justify-center items-center gap-12 my-24">
+        <section className="flex flex-col justify-center items-center gap-12">
             <div className="flex-col justify-start items-center gap-6 flex">
                 <div className="text-black text-4xl md:text-5xl font-bold font-lato leading-10">
                     Testimonials

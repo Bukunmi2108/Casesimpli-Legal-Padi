@@ -3,7 +3,7 @@ import { useId } from "react";
 
 export default function FeaturesSectionDemo() {
   return (
-    (<div className="py-20">
+    (<div className="">
       <div
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-2 max-w-7xl mx-auto px-4">
         {grid.map((feature) => (
@@ -12,11 +12,11 @@ export default function FeaturesSectionDemo() {
             className="relative bg-gradient-to-b dark:from-neutral-900 from-neutral-100 dark:to-neutral-950 to-white p-6 rounded-3xl overflow-hidden">
             <Grid size={20} />
             <p
-              className="text-base font-bold text-neutral-800 dark:text-white relative z-20">
+              className="text-base font-bold text-neutral-800 dark:text-white relative z-20 font-lato">
               {feature.title}
             </p>
             <p
-              className="text-neutral-600 dark:text-neutral-400 mt-4 text-base font-normal relative z-20">
+              className="text-neutral-600 dark:text-neutral-400 mt-4 text-base font-light relative z-20 font-inter">
               {feature.description}
             </p>
           </div>
