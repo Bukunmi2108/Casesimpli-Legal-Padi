@@ -40,7 +40,7 @@ const Sidebar = ({ handleSidebarState, mouseState, sidebarState }) => {
 
 
   return (
-    <div className={`bg-white border-r-2 border-gray-100 ${sidebarState? 'w-[250px]': 'w-[80px]'} h-full z-10 flex fixed flex-col p-2 gap-4`} onMouseEnter={mouseState}>
+    <div className={`bg-white border-r-2 border-gray-100 ${sidebarState? 'w-[200px]': 'w-[80px]'} h-full z-10 flex fixed flex-col p-2 gap-4`} onMouseEnter={mouseState}>
 
         < TbSquareToggle onClick={handleSidebarState} className='w-5 h-5 text-gray-400' />
 
