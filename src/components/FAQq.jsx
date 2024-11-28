@@ -12,7 +12,7 @@ const FAQq = ({question, answer}) => {
   return (
     <div className="flex flex-col w-full gap-2 transition-all ease-in-out">
         <div className="justify-between items-center flex gap-4 w-full cursor-pointer" onClick={handleDropdown}>
-            <div className="text-black xs:text-sm sm:text-lg lg:text-xl font-inter font-semibold">
+            <div className="text-primary-text xs:text-sm sm:text-lg lg:text-xl font-lato font-semibold">
                 {question}
             </div>
             <div>

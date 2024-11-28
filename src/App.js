@@ -1,4 +1,4 @@
-import { Homepage, Login, Signup } from './containers'
+import { Homepage, Login, Signup, MainFeed } from './containers'
 import { Routes, Route } from 'react-router-dom';
 
 
@@ -7,6 +7,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Homepage />} />
+        <Route path="/home" element={<MainFeed />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>

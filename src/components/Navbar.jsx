@@ -15,9 +15,11 @@ const Navbar = () => {
   return (
     <div className='w-full'>
       <div className="mx-auto max-w-7xl justify-between items-start md:items-center flex w-full px-4 py-2 flex-col md:flex-row gap-4 md:gap-0 relative">
-        <Logo />
+        <Link to='/'>
+          <Logo />
+        </Link>
         {menuState && <div className="justify-center items-start md:items-center gap-4 flex md:hidden flex-col md:flex-row">
-            <Link to='/'>
+            <Link to='/home'>
               <div className="text-primary-text text-base font-regular font-inter">Home</div>
             </Link>
             <div className="text-primary-text text-base font-regular font-inter">Videos</div>
@@ -40,7 +42,7 @@ const Navbar = () => {
           </Link>
         </div>}
         <div className="justify-center items-start gap-4 hidden md:flex">
-            <Link to='/'>
+            <Link to='/home'>
               <div className="text-primary-text text-base font-regular font-inter">Home</div>
             </Link>
             <div className="text-primary-text text-base font-regular font-inter">Videos</div>

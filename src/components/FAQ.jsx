@@ -2,7 +2,25 @@ import React from 'react'
 import { FAQq, Heading } from '../components'
 
 
+
 const FAQ = () => {
+
+    const questions = [
+        {
+            question: 'What is Legal padi?',
+            answer: 'Lorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit'
+        },
+        {
+            question: 'Why Legal padi?',
+            answer: 'Lorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit'
+        },
+        {
+            question: 'What is Legal padi?',
+            answer: 'Lorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit'
+        },
+    ]
+
+
   return (
     <div className="flex flex-col w-full justify-center items-center py-16 gap-16">
 
@@ -12,22 +30,16 @@ const FAQ = () => {
         />
 
         <div className='w-full flex flex-col max-w-3xl px-3 gap-3'>
-            <FAQq 
-                question='What is Legal padi?'
-                answer='Lorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit'
-            />
-            <FAQq 
-                question='What is Legal padi?'
-                answer='Lorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit'
-            />
-            <FAQq 
-                question='What is Legal padi?'
-                answer='Lorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit'
-            />
-            <FAQq 
-                question='What is Legal padi?'
-                answer='Lorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit'
-            />
+            {
+                questions.map((question, key) => (
+                    <div key={key}>
+                        <FAQq 
+                            question={question.question}
+                            answer={question.answer}
+                        />
+                    </div>
+                ))
+            }
         </div>
     </div>  
 )
