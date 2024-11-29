@@ -5,29 +5,35 @@ import { RiRobot3Line } from 'react-icons/ri'
 import { IoCallOutline, IoSettingsOutline } from 'react-icons/io5'
 import { BiCategory } from 'react-icons/bi'
 import { TbSquareToggle } from 'react-icons/tb'
+import { Link } from 'react-router-dom'
 
 const Sidebar = ({ handleSidebarState, mouseState, sidebarState }) => {
 
     const SideLinks = [
         {
             icon: <GoHome className='w-6 h-6 text-primary-blue' />,
-            text: 'Home'
+            text: 'Home',
+            link: '/home'
         },
         {
             icon: <RiRobot3Line className='w-6 h-6 text-primary-blue' />,
-            text: 'De Law AI'
+            text: 'De Law AI',
+            link: '/delawai'
         },
         {
             icon: <IoCallOutline className='w-6 h-6 text-primary-blue' />,
-            text: 'Call a Lawyer'
+            text: 'Call a Lawyer',
+            link: '/home'
         },
         {
             icon: <BiCategory className='w-6 h-6 text-primary-blue' />,
-            text: 'All Categories'
+            text: 'All Categories',
+            link: '/home'
         },
         {
             icon: <IoSettingsOutline className='w-6 h-6 text-primary-blue' />,
-            text: 'Settings'
+            text: 'Settings',
+            link: '/home'
         },
     ]
 
@@ -63,13 +69,16 @@ const Sidebar = ({ handleSidebarState, mouseState, sidebarState }) => {
             {
                 SideLinks.map((sidelink, key) => {
                     return (
-                        <div key={key} className='px-4 py-2 border-gray-300 border-2 rounded-xl flex flex-row gap-4 items-center justify-start'>
-                            {sidelink.icon}
+                        <Link to={sidelink.link}>                       
+                            <div key={key} className='px-4 py-2 border-gray-300 border-2 rounded-xl flex flex-row gap-4 items-center justify-start hover:bg-primary-shade'>
+                                {sidelink.icon}
 
-                            {sidebarState && <h3 className='font-lato text-md font-bold text-primary-blue'>
-                                {sidelink.text}
-                            </h3>}
-                        </div>
+                                {sidebarState && <h3 className='font-lato text-md font-bold text-primary-blue group-hover:text-white'>
+                                    {sidelink.text}
+                                </h3>}
+                            </div>
+                        </Link>
+
                     )
                 })
             }

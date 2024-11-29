@@ -28,7 +28,7 @@ const Features = () => {
             <div className="flex flex-col md:flex-row justify-center items-center gap-16 md:gap-8">
                 <div className="flex flex-col md:w-1/2 gap-6 order-2 md:order-1">
                     <div className="text-black text-xl md:text-3xl text-center md:text-left font-bold font-lato leading-9">
-                        Legal Padi Legal Research Directory
+                        De Law AI
                     </div>
                     <div className="text-black text-base font-light font-inter text-center md:text-left leading-normal">
                         Lorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consectetur
@@ -41,7 +41,7 @@ const Features = () => {
             <div className="flex flex-col md:flex-row justify-center items-center gap-16 md:gap-8">
                 <div className="flex flex-col md:w-1/2 gap-6 order-2 md:order-1">
                     <div className="text-black text-xl md:text-3xl text-center md:text-left font-bold font-lato leading-9">
-                        Legal Padi Legal Research Directory
+                        Call a Lawyer
                     </div>
                     <div className="text-black text-base font-light font-inter text-center md:text-left leading-normal">
                         Lorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consectetur

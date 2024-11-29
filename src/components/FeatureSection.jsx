@@ -28,22 +28,22 @@ export default function FeaturesSectionDemo() {
 
 const grid = [
   {
-    title: "HIPAA and SOC2 Compliant",
+    title: "Explainer Videos on Legal Matters",
     description:
       "Our applications are HIPAA and SOC2 compliant, your data is safe with us, always.",
   },
   {
-    title: "Automated Social Media Posting",
+    title: "Detailed Articles and Blogs",
     description:
       "Schedule and automate your social media posts across multiple platforms to save time and maintain a consistent online presence.",
   },
   {
-    title: "Advanced Analytics",
+    title: "Up to date Case studies and Legal Reports",
     description:
       "Gain insights into your social media performance with detailed analytics and reporting tools to measure engagement and ROI.",
   },
   {
-    title: "Content Calendar",
+    title: "Legal Reasearch AI Assistant",
     description:
       "Plan and organize your social media content with an intuitive calendar view, ensuring you never miss a post.",
   },

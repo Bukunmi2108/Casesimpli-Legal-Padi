@@ -42,7 +42,7 @@ const ContentArea = ({ sidebarState }) => {
         },
     ]
   return (
-    <main className={`${!sidebarState? 'ml-[80px]': 'ml-[200px]'} w-full bg-gray-50 p-4 overflow-x-hidden`}>
+    <main className={`${!sidebarState? 'ml-[80px]': 'xs:ml-[80px] sm:ml-[200px]'} w-full bg-gray-50 p-4 overflow-x-hidden`}>
 
         <div className='flex flex-row gap-4 overflow-x-auto'>
             {
