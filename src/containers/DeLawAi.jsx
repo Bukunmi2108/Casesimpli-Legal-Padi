@@ -12,6 +12,10 @@ const MainFeed = () => {
     setSidebarState(true)
   }
 
+  const closeSidebar = () => {
+    setSidebarState(false)
+  }
+
 
   return (
     <div>
@@ -23,8 +27,9 @@ const MainFeed = () => {
             sidebarState={sidebarState}
           />
 
-          <DeLawAi 
-          sidebarState={sidebarState}
+          <DeLawAi
+            onClick={closeSidebar} 
+            sidebarState={sidebarState}
           />
         </div>
 

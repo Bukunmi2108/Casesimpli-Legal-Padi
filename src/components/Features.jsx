@@ -6,19 +6,19 @@ import { Heading } from '../components'
 
 const Features = () => {
   return (
-    <section className="max-w-7xl mx-auto flex flex-col py-16 gap-16">
+    <section className="max-w-5xl mx-auto flex flex-col py-16 gap-16">
         <Heading 
             topic={'Features of Legal Padi'}
-            subtopic={'Explore the exceptional features Legal Padi has for you'}
+            subtopic={'CaseSimpli Legal Padi tailored approaches designed specifically for your needs.'}
         />
         <div className='flex flex-col w-full md:px-12 px-4 gap-16'>
             <div className="flex flex-col md:flex-row justify-center items-center gap-16 md:gap-8">
                 <div className="flex flex-col md:w-1/2 gap-6 order-2 md:order-1">
                     <div className="text-black text-xl md:text-3xl text-center md:text-left font-bold font-lato leading-9">
-                        Legal Padi Legal Research Directory
+                        Law Made Easy
                     </div>
                     <div className="text-black text-sm md:text-base font-light text-center md:text-left font-inter leading-relaxed">
-                        Lorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consectetur
+                        Empower youself with our extensive library of clear and concise Legal information, focused on Issues affecting individuals.
                     </div>
                 </div>
                 <div className="flex md:w-1/2 w-full justify-center ">
@@ -28,10 +28,10 @@ const Features = () => {
             <div className="flex flex-col md:flex-row justify-center items-center gap-16 md:gap-8">
                 <div className="flex flex-col md:w-1/2 gap-6 order-2 md:order-1">
                     <div className="text-black text-xl md:text-3xl text-center md:text-left font-bold font-lato leading-9">
-                        De Law AI
+                        D'Law AI from CaseSimpli Legal Padi
                     </div>
                     <div className="text-black text-base font-light font-inter text-center md:text-left leading-normal">
-                        Lorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consectetur
+                        Chat with an AI powered tool offering personalized legal consultations and additional services suct and legal drafting, document summarization, etc.
                     </div>
                 </div>
                 <div className="flex md:w-1/2 w-full justify-center md:order-1">
@@ -41,10 +41,10 @@ const Features = () => {
             <div className="flex flex-col md:flex-row justify-center items-center gap-16 md:gap-8">
                 <div className="flex flex-col md:w-1/2 gap-6 order-2 md:order-1">
                     <div className="text-black text-xl md:text-3xl text-center md:text-left font-bold font-lato leading-9">
-                        Call a Lawyer
+                        Talk to a Real Lawyer
                     </div>
                     <div className="text-black text-base font-light font-inter text-center md:text-left leading-normal">
-                        Lorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consectetur
+                        Link with a seasoned lawyer and leverage their specialized knowledge and practical expertise.
                     </div>
                 </div>
                 <div className="flex md:w-1/2 w-full justify-center">

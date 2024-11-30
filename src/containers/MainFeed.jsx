@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Navbar, Sidebar, ContentArea } from '../components'
+import { Navbar, Sidebar, ContentArea, Footer } from '../components'
 
 const MainFeed = () => {
   const [ sidebarState, setSidebarState ] = useState(false)
@@ -10,6 +10,10 @@ const MainFeed = () => {
 
   const mouseState = () => {
     setSidebarState(true)
+  }
+
+  const closeSidebar = () => {
+    setSidebarState(false)
   }
 
 
@@ -24,9 +28,13 @@ const MainFeed = () => {
           />
 
           <ContentArea 
-          sidebarState={sidebarState}
+            onClick={closeSidebar}
+            sidebarState={sidebarState}
           />
+
         </div>
+
+        <Footer />
 
     </div>
   )

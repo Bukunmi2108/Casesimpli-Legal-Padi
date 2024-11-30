@@ -2,7 +2,7 @@ import React from 'react'
 import Btn from './Btn'
 import { IoDocumentTextOutline, IoSend } from 'react-icons/io5'
 
-const ContentArea = ({ sidebarState }) => {
+const ContentArea = ({ sidebarState, onClick }) => {
 
   const prompts = [
     {
@@ -23,7 +23,7 @@ const ContentArea = ({ sidebarState }) => {
     },
   ]
   return (
-    <main className={`${!sidebarState? 'ml-[80px]': 'xs:ml-[80px] sm:ml-[200px'} w-full h-screen bg-gray-50 p-4 overflow-x-hidden`}>
+    <main className={`${!sidebarState? 'm-0 md:ml-[80px]': 'm-0 md:ml-[200px]'} w-full h-screen bg-gray-50 p-4 overflow-x-hidden relative`}>
 
       <div className='grid grid-cols-2 gap-2 mt-32 mx-auto max-w-lg'>
         {
@@ -38,7 +38,7 @@ const ContentArea = ({ sidebarState }) => {
         }
       </div>
 
-      <div className='flex items-center justify-center bg-white rounded-full px-4 mt-40 mx-auto max-w-5xl'>
+      <div className='flex items-center justify-center bg-white rounded-full px-4 mx-auto max-w-5xl w-full absolute bottom-24 left-0 right-0'>
         <input 
           className='w-full h-12 font-lato outline-none'
           placeholder='Ask De Law AI'

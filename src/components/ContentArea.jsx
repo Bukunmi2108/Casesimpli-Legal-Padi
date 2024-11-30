@@ -1,19 +1,9 @@
 import React from 'react'
 import Btn from './Btn'
 import thumbnail from '../assets/blog-img.png'
+import { Link } from 'react-router-dom'
 
-const ContentArea = ({ sidebarState }) => {
-    const categories = [
-        'Criminal Law',
-        'Criminal Law',
-        'Criminal Law',
-        'Criminal Law',
-        'Criminal Law',
-        'Criminal Law',
-        'Criminal Law',
-        'Criminal Law',
-        'Criminal Law',
-    ]
+const ContentArea = ({ sidebarState, onClick }) => {
 
     const Articles = [
         {
@@ -42,21 +32,15 @@ const ContentArea = ({ sidebarState }) => {
         },
     ]
   return (
-    <main className={`${!sidebarState? 'ml-[80px]': 'xs:ml-[80px] sm:ml-[200px]'} w-full bg-gray-50 p-4 overflow-x-hidden`}>
+    <main className={`${!sidebarState? 'm-0 md:ml-[80px]': 'm-0 md:ml-[200px]'} w-full bg-gray-50 p-4 overflow-x-hidden`} onClick={onClick}>
 
-        <div className='flex flex-row gap-4 overflow-x-auto'>
-            {
-                categories.map((category, key) => {
-                    return (
-                        <div key={key} >
-                            <Btn 
-                                text={category}
-                                classes={'bg-gray-100 rounded-lg py-2 px-4 text-nowrap'}
-                            />
-                        </div>
-                    )
-                })
-            }
+        <div className='w-full flex items-center justify-center'>
+            <Link to={'/categories'}>
+                <Btn 
+                    text='VIEW ALL CATEGORIES'
+                    classes={'bg-gray-100 rounded-lg py-2 px-4 text-nowrap'}
+                />
+            </Link>
         </div>
 
         <div className='flex flex-col items-center justify-center mt-16 gap-4'>

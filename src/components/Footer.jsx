@@ -11,7 +11,7 @@ const Footer = () => {
                         classes='text-white'
                     />
                     <div className="w-full md:w-[376px] text-white text-sm md:text-md font-normal font-inter leading-normal">
-                        reviews about Legal PadiRead reviews about Legal PadiRead reviews about Legal PadiRead reviews about Legal Padi
+                        CaseSimpli Legal Padi is committed to transforming the justice system through cutting-edge technology, unlocking the potential of individuals and businesses alike. 
                     </div>
                 </div>
                 <div className="flex gap-8">
