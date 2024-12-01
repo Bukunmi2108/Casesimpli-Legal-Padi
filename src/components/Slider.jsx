@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { Heading } from '../components'
 import Slider1 from '../assets/slider1.jpg'
 import Slider2 from '../assets/slider2.jpg'
+import Slider3 from '../assets/blog-img.png'
+import Slider4 from '../assets/slider2.jpg'
+import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from 'react-icons/fa'
 
 const HeroVideo = () => {
     const slides = [
@@ -18,17 +21,85 @@ const HeroVideo = () => {
         {
             title: 'Making the Nigerian Society a legal literate one!',
             text:'Know your rights and join the growing network of legally informed Nigerians',
-            img: Slider1
+            img: Slider3
         },
     ]
-  return (
-    <div className='mx-auto max-w-7xl xs:px-4 sm:px-4'>
-        <div className=" w-full mx-auto flex flex-col py-24 items-center justify-center gap-16">
 
-            <Heading 
-                topic={'Curious about CaseSimpli Legal Padi?'}
-                subtopic={'Watch this quick video to discover how we are empowering Nigerians through Legal literacy'}
-            />
+    const [index, setIndex] = useState(0)
+
+    const timerId = useRef(null)
+
+    // useEffect(() => {
+    //     timerId.current = setTimeout(() => {
+    //         setIndex((prevIndex) => {
+    //             if (prevIndex == slides.length) {
+    //                 return 0
+    //             } else {
+    //                 return prevIndex + 1
+    //             }
+    //         }), 5000
+    //     })
+    // })
+    
+    const handleLeftBtn = () => {
+        setIndex((prevIndex) => {
+            if (prevIndex > 0) {
+                return prevIndex - 1
+            } else {
+                return slides.length
+            }
+        })
+    }
+
+    const handleRightBtn = () => {
+        setIndex((prevIndex) => {
+            if (prevIndex == slides.length) {
+                return 0
+            } else {
+                return prevIndex + 1
+            }
+        })
+    }
+  return (
+    <div className='mx-auto max-w-7xl xs:px-4 sm:px-4 bg-blue-50'>
+        <div className=" w-full mx-auto flex flex-col pt-12 pb-24 items-center justify-center gap-16">
+
+            <div className='mx-auto flex flex-row overflow-hidden rounded-2xl'>
+                {
+                    slides.map((slide, i) => {
+                        return(
+                            <div key={i} className={`relative min-w-full rounded-2xl -translate-x-[${index * 100}%] transition-all ease-in-out`}>
+                                <img className='w-full h-full object-cover rounded-2xl' src={slide.img} />
+                                <div className='absolute top-0 left-0 w-full h-full flex items-center justify-between z-20'>
+                                    <FaArrowAltCircleLeft onClick={handleLeftBtn} className='w-8 h-8 text-white hover:text-gray-100 cursor-pointer hover:w-10 hover:h-10 mx-2 md:mx-4' />
+                                    <FaArrowAltCircleRight onClick={handleRightBtn} className='w-8 h-8 text-white hover:text-gray-100 cursor-pointer hover:w-10 hover:h-10 mx-2 md:mx-4'
+                                     />
+                                </div>
+                                <div className='flex z-10 gap-1 absolute bottom-2 w-full items-center justify-center transition-all ease-in-out'>
+                                    {
+                                        slides.map((slide, j) => {
+                                            return(
+                                                <div key={j} className={`${index == j? 'bg-primary-blue w-3':'bg-gray-300 w-2'} h-2 rounded-full`}>
+
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </div>
+                                <div className='absolute top-0 left-0 w-full h-full text-primary-white p-4 md:p-8 bg-black bg-opacity-50 flex flex-col gap-8'>
+                                    <h3 className='xs:text-4xl sm:text-6xl md:text-8xl font-lato font-bold leading-tighter'>
+                                        {slide.title}
+                                    </h3>
+                                    <p className='text-md md:text-xl font-inter'>
+                                        {slide.text}
+                                    </p>
+                                </div>
+
+                            </div>
+                        )
+                    })
+                }
+            </div>
 
         </div>
     </div>

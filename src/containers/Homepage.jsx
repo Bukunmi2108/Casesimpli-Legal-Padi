@@ -8,8 +8,8 @@ const Homepage = () => {
     <div>
         <Navbar />
         <Hero />
-        <HeroVideo />
         <Slider />
+        <HeroVideo />
         <Features />
         <Benefits />
         <FAQ />

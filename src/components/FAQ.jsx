@@ -22,7 +22,7 @@ const FAQ = () => {
 
 
   return (
-    <div className="flex flex-col w-full justify-center items-center py-16 gap-16">
+    <div className="flex flex-col w-full justify-center items-center py-16 gap-16 bg-gray-50">
 
         <Heading 
             topic={'Frequently asked Questions'}

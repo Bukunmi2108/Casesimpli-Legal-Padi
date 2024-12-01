@@ -6,7 +6,7 @@ import { Heading } from '../components'
 
 const Features = () => {
   return (
-    <section className="max-w-5xl mx-auto flex flex-col py-16 gap-16">
+    <section className="max-w-5xl mx-auto flex flex-col py-16 gap-16 bg-slate-50">
         <Heading 
             topic={'Features of Legal Padi'}
             subtopic={'CaseSimpli Legal Padi tailored approaches designed specifically for your needs.'}
