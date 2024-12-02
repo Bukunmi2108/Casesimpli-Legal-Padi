@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Heading } from '../components'
 import Slider1 from '../assets/slider1.jpg'
 import Slider2 from '../assets/slider2.jpg'
@@ -21,54 +21,55 @@ const HeroVideo = () => {
         {
             title: 'Making the Nigerian Society a legal literate one!',
             text:'Know your rights and join the growing network of legally informed Nigerians',
-            img: Slider3
+            img: Slider2
         },
     ]
 
-    const [index, setIndex] = useState(0)
+    const [index, setIndex] = useState(1)
 
-    const timerId = useRef(null)
 
     // useEffect(() => {
-    //     timerId.current = setTimeout(() => {
+    //     const intervalId = setInterval(() => {
     //         setIndex((prevIndex) => {
     //             if (prevIndex == slides.length) {
     //                 return 0
     //             } else {
     //                 return prevIndex + 1
     //             }
-    //         }), 5000
-    //     })
-    // })
+    //         })
+    //     }, 10000);
+
+    //     return () => clearInterval(intervalId)
+    // }, [])  
+    
     
     const handleLeftBtn = () => {
-        setIndex((prevIndex) => {
-            if (prevIndex > 0) {
-                return prevIndex - 1
-            } else {
-                return slides.length
-            }
-        })
+        if (index === 1) {
+            setIndex(slides.length - 1)
+        } else{
+            setIndex(prevIndex => prevIndex - 1)
+        }
     }
 
     const handleRightBtn = () => {
         setIndex((prevIndex) => {
-            if (prevIndex == slides.length) {
-                return 0
+            if (prevIndex == slides.length - 1) {
+                return 1
             } else {
                 return prevIndex + 1
             }
         })
     }
   return (
-    <div className='mx-auto max-w-7xl xs:px-4 sm:px-4 bg-blue-50'>
+    <div className='w-full bg-blue-50'>
+    <div className='mx-auto max-w-7xl xs:px-4 sm:px-4 '>
         <div className=" w-full mx-auto flex flex-col pt-12 pb-24 items-center justify-center gap-16">
 
             <div className='mx-auto flex flex-row overflow-hidden rounded-2xl'>
                 {
                     slides.map((slide, i) => {
                         return(
-                            <div key={i} className={`relative min-w-full rounded-2xl -translate-x-[${index * 100}%] transition-all ease-in-out`}>
+                            <div key={i} className={`relative min-w-full rounded-2xl -translate-x-[${(index)*100}%] transition-all ease-in-out`}>
                                 <img className='w-full h-full object-cover rounded-2xl' src={slide.img} />
                                 <div className='absolute top-0 left-0 w-full h-full flex items-center justify-between z-20'>
                                     <FaArrowAltCircleLeft onClick={handleLeftBtn} className='w-8 h-8 text-white hover:text-gray-100 cursor-pointer hover:w-10 hover:h-10 mx-2 md:mx-4' />
@@ -86,9 +87,9 @@ const HeroVideo = () => {
                                         })
                                     }
                                 </div>
-                                <div className='absolute top-0 left-0 w-full h-full text-primary-white p-4 md:p-8 bg-black bg-opacity-50 flex flex-col gap-8'>
+                                <div className='absolute top-0 left-0 w-full h-full text-primary-white xs:px-8 sm:px-4 p-4 md:p-8 bg-black bg-opacity-50 flex flex-col gap-8'>
                                     <h3 className='xs:text-4xl sm:text-6xl md:text-8xl font-lato font-bold leading-tighter'>
-                                        {slide.title}
+                                        {slide.title}{index}
                                     </h3>
                                     <p className='text-md md:text-xl font-inter'>
                                         {slide.text}
@@ -102,6 +103,7 @@ const HeroVideo = () => {
             </div>
 
         </div>
+    </div>
     </div>
  )
 }

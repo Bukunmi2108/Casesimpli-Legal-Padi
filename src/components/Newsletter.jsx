@@ -1,26 +1,33 @@
 import React from "react";
 import { useId } from "react";
+import { FiSend } from "react-icons/fi";
 
-export default function FeaturesSectionDemo() {
+export default function Newsletter() {
   return (
-    (<div className="">
+    (<div className="mx-auto w-full xs:px-4 sm:px-4 bg-gray-50 flex flex-col justify-center items-center py-16 gap-16">
       <div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-2 max-w-7xl mx-auto px-4">
-        {grid.map((feature) => (
+        className="">
           <div
-            key={feature.title}
-            className="relative bg-gradient-to-b dark:from-neutral-900 from-neutral-100 dark:to-neutral-950 to-white p-6 rounded-3xl overflow-hidden">
+            className="relative bg-gradient-to-b dark:from-neutral-900 from-neutral-100 dark:to-neutral-950 to-white p-6 md:px-24 md:py-12 rounded-3xl overflow-hidden w-full">
             <Grid size={20} />
+            <h3
+              className="text-base font-bold dark:text-white relative z-20 font-lato text-black xs:text-3xl sm:text-4xl md:text-5xl text-center w-full">
+              Subscribe to our newsletter
+            </h3>
             <p
-              className="text-base font-bold text-neutral-800 dark:text-white relative z-20 font-lato">
-              {feature.title}
+              className="text-neutral-600 dark:text-neutral-400 mt-4 text-base font-light relative z-20 font-inter text-center">
+              Subscribe to our newsletter for updates on the Legal Industry and Trends.
             </p>
-            <p
-              className="text-neutral-600 dark:text-neutral-400 mt-4 text-base font-light relative z-20 font-inter">
-              {feature.description}
-            </p>
+            <div className="mt-8 flex flex-row items-center justify-center">
+                <input 
+                    className="font-inter outline-none p-4 bg-blue-50 w-full"
+                    placeholder="Enter your email"
+                />
+                <div className='bg-primary-blue flex items-center justify-center p-4'>
+                    <FiSend className="w-6 h-6  text-primary-shade" />
+                </div>
+            </div>
           </div>
-        ))}
       </div>
     </div>)
   );
