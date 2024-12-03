@@ -3,7 +3,7 @@ import { Logo } from '../components'
 
 const Footer = () => {
   return (
-    <div className='w-full bg-primary-text'>
+    <div className='w-full bg-gray-800'>
         <div className="max-w-6xl mx-auto flex flex-col justify-center items-center px-8 py-12 gap-16">
             <div className='flex flex-col md:flex-row md:justify-between gap-24 md:gap-0 items-start w-full'>
                 <div className="flex flex-col gap-4 items-start">
@@ -23,11 +23,11 @@ const Footer = () => {
                         <div className="self-stretch text-white text-sm md:text-md font-normal font-inter leading-normal">Contact us</div>
                     </div>
                     <div className="flex-col justify-start items-start gap-[18px] flex">
-                        <div className="self-stretch text-white text-sm md:text-md font-normal font-inter leading-normal">Home</div>
-                        <div className="self-stretch text-white text-sm md:text-md font-normal font-inter leading-normal">About us</div>
-                        <div className="self-stretch text-white text-sm md:text-md font-normal font-inter leading-normal">Case Simpli</div>
-                        <div className="self-stretch text-white text-sm md:text-md font-normal font-inter leading-normal">Careers</div>
-                        <div className="self-stretch text-white text-sm md:text-md font-normal font-inter leading-normal">Contact us</div>
+                        <div className="self-stretch text-white text-sm md:text-md font-normal font-inter leading-normal">D'Law AI</div>
+                        <div className="self-stretch text-white text-sm md:text-md font-normal font-inter leading-normal">Videos</div>
+                        <div className="self-stretch text-white text-sm md:text-md font-normal font-inter leading-normal">Articles</div>
+                        <div className="self-stretch text-white text-sm md:text-md font-normal font-inter leading-normal">Blog</div>
+                        <div className="self-stretch text-white text-sm md:text-md font-normal font-inter leading-normal">Law Report</div>
                     </div>
                 </div>
             </div>

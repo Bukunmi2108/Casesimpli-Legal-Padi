@@ -11,10 +11,11 @@ const Hero = () => {
             Your Legal Padi, Anytime, Anywhere
             </h1>
             <div className="text-center text-primary-text text-lg md:text-xl font-medium font-inter max-w-2xl ">Seamless access to legal information and education, solved complexities associated with engaging legal services.</div>
-            <Btn 
-            text='Get started for free'
-            classes='bg-primary-orange text-white'
-            />
+            <div className='flex flex-row p-4 bg-primary-blue w-fit rounded gap-2'>
+                <span className='font-inter text-xl font-medium text-white'>
+                    Get started for free
+                </span>
+            </div>
         </div>
     </div>
 )
