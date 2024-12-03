@@ -13,8 +13,8 @@ const HeroVideo = () => {
                 subtopic={'Watch this quick video to discover how we are empowering Nigerians through Legal literacy'}
             />
 
-            <div className='w-full rounded mx-auto'>
-                <ReactPlayer className={'w-full xs:h-[240px] sm:h-[360px] md:h-[480px] lg:h-[640px] mx-auto'}   loop width={'w-full'} height={'h-96'} url='https://www.youtube.com/watch?v=LXb3EKWsInQ' />
+            <div className='w-full mx-auto'>
+                <ReactPlayer className={'w-full xs:h-[240px] sm:h-[360px] md:h-[480px] lg:h-[640px] mx-auto'} controls  loop width={'w-full'} height={'h-96'} url='videos/video.mp4' />
             </div>
 
         </div>

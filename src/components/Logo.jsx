@@ -7,7 +7,7 @@ const Logo = ({classes}) => {
       <div class="">
           <img alt='logo' class="w-[24px] md:w-[32px]" src={LogoImg} />
       </div>
-      <div class={`text-2xl md:text-4xl font-bold font-lato ${classes}`}>Legal Padi</div>
+      <div class={`text-2xl md:text-4xl font-bold font-lato ${classes}`}>CaseSimpli Legal Padi</div>
     </div>
   )
 }

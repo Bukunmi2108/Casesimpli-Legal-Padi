@@ -10,9 +10,9 @@ const FAQq = ({question, answer}) => {
         setDropdown(!dropdown)
     }
   return (
-    <div className="flex flex-col w-full gap-2 transition-all ease-in-out">
+    <div className="flex flex-col w-full gap-2 transition-all ease-in-out border-b-2 border-gray-200 p-4">
         <div className="justify-between items-center flex gap-4 w-full cursor-pointer" onClick={handleDropdown}>
-            <div className="text-primary-text xs:text-sm sm:text-lg lg:text-xl font-lato font-semibold">
+            <div className="text-primary-text xs:text-md sm:text-lg lg:text-xl font-lato font-semibold">
                 {question}
             </div>
             <div>
@@ -22,7 +22,6 @@ const FAQq = ({question, answer}) => {
         {dropdown && <div className='xs:text-sm sm:text-base font-inter font-light'>
             {answer}
         </div>}
-        <div className="border border-gray-400"></div>
     </div>  
 )
 }
