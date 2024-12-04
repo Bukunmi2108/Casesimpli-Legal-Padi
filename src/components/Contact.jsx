@@ -31,6 +31,7 @@ const Contact = () => {
     <div className='mx-auto max-w-7xl xs:px-4 sm:px-4 flex flex-col w-full justify-center items-center py-16 gap-16'>
         <Heading 
             topic={'Contact us'}
+            subtopic={'Get in touch with us'}
         />
         <div className= "flex xs:flex-col sm:flex-row xs:gap-12 sm:gap-8">
             <img className='xs:w-full sm:w-1/2 object-cover' src={community} />
