@@ -8,7 +8,7 @@ const FAQ = () => {
     const questions = [
         {
             question: 'What is CaseSimpli Legal padi?',
-            answer: 'CaseSimpli Legal Padi is a pioneering legal tech platform dedicated to bridging the knowledge gap and facilitating seamless access to legal information. consultation, and services.'
+            answer: 'CaseSimpli Legal Padi is a pioneering legal tech platform dedicated to bridging the knowledge gap and facilitating seamless access to legal information, consultation, and services.'
         },
         {
             question: 'How does CaseSimpli Legal padi positively contribute to the Nigerian society?',
