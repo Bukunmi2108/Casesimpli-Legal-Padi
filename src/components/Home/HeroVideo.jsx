@@ -1,5 +1,5 @@
 import React from 'react'
-import { Heading } from '../components'
+import { Heading } from '..'
 import ReactPlayer from 'react-player'
 
 

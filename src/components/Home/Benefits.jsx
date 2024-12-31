@@ -1,6 +1,6 @@
 import React from 'react'
-import { Heading } from '../components'
-import FeaturesSectionDemo from '../components/FeatureSection'
+import { Heading } from '..'
+import FeaturesSectionDemo from './FeatureSection'
 
 const Benefits = () => {
   return (

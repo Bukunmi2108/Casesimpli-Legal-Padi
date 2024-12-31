@@ -1,6 +1,7 @@
 import React from 'react'
-import { Navbar, Footer, Logo, Btn } from '../components'
-import Abstract from '../assets/abstract.svg'
+import { Navbar, Footer, Logo, Btn } from '../../components'
+import Abstract from '../../assets/abstract.svg'
+import { Link } from 'react-router-dom'
 
 
 const Signup = () => {
@@ -36,14 +37,8 @@ const Signup = () => {
               </div>
           </div>
           <div class="flex gap-2">
-            <Btn 
-                classes='bg-white text-primary-blue border border-primary-blue'
-                text='Register'
-            />
-            <Btn 
-                classes='bg-primary-blue text-white'
-                text='Login'
-            />
+            <Link to={'/feed'} className='button-primary'>Login</Link>
+            <Link to={'/feed'} className='button-secondary'>Sign up</Link>
           </div>
         </div>
       </div>

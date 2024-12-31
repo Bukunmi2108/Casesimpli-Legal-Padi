@@ -1,7 +1,7 @@
 import React from 'react'
-import { Navbar, Footer, Logo, Btn, Hero, Features, Benefits, FAQ, HeroVideo, Slider, Contact, Newsletter } from '../components'
+import { Navbar, Footer, Hero, Features, Benefits, FAQ, HeroVideo, Slider, Contact, Newsletter } from '../../components'
 
-const Homepage = () => {
+const Home = () => {
   return (
     <div>
         <Navbar />
@@ -13,10 +13,9 @@ const Homepage = () => {
         <Contact />
         <Newsletter />
         <FAQ />
-
         <Footer />
     </div>
   )
 }
 
-export default Homepage
+export default Home

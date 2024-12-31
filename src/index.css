@@ -6,8 +6,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Biryani:wght@200;300;400;600;700;800;900&display=swap');
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -22,9 +20,6 @@ code {
     monospace;
 }
 
-.bg {
-  background-image: url('assets/butterfly.svg');
-}
 
 @layer utilities {
   .scrollbar-hidden::-webkit-scrollbar {
@@ -35,4 +30,82 @@ code {
     scrollbar-width: 3px;
     -ms-overflow-style: 3px;
   }
+}
+
+
+/* THIS ARE REUSABLE STYLES FOR THE PROJECTS. I WOULD ORGANISE THEM AS BEST AS I CAN*/
+
+/* BUTTONS */
+.button-primary{
+  @apply h-11 px-6 rounded-3xl justify-center items-center text-white text-base font-medium bg-primary-blue flex font-lato
+}
+.button-secondary{
+  @apply h-11 px-6 bg-white rounded-3xl border-2 border-primary-blue justify-center items-center flex text-primary-blue text-base font-medium font-lato
+}
+.button-grey-border{
+  @apply h-11 px-6 bg-white rounded-3xl border-2 border-primary-shade justify-center items-center flex text-primary-text text-base font-medium font-lato
+}
+.button-grey-bg{
+  @apply h-11 px-6 bg-primary-shade rounded-3xl justify-center items-center flex text-primary-text text-base font-medium font-lato
+}
+.button-underline-primary{
+  @apply h-11 px-6 border-b border-primary-blue justify-center items-center flex text-primary-blue text-base font-medium font-lato
+}
+.button-nounderline-grey{
+  @apply h-11 px-6 justify-center items-center flex text-primary-text text-base font-medium font-lato
+}
+
+
+
+/* NAVLINKS */
+.navlinks{
+  @apply text-primary-text text-sm font-inter
+}
+
+
+/* SIDELINKS */
+.big-sidelink-container{
+  @apply w-[215px] h-10 px-3 py-2.5 rounded-xl border border-primary-shade justify-start items-center flex text-black text-base font-bold font-lato gap-2.5
+}
+.small-sidelink-container{
+  @apply w-[215px] h-10 px-3 py-2.5 rounded-xl border border-primary-shade justify-start items-center gap-2.5 flex text-primary-text text-base font-bold font-lato
+}
+
+
+/* TEXT STYLES */
+/* HEADERS */
+.h-xs{
+  @apply font-lato font-bold text-primary-text text-sm
+}
+.h-sm{
+  @apply font-lato font-bold text-primary-text text-base
+}
+.h-md{
+  @apply font-lato font-bold text-primary-text text-xl
+}
+.h-lg{
+  @apply font-lato font-bold text-primary-text text-2xl
+}
+.h-xl{
+  @apply font-lato font-bold text-primary-text text-3xl
+}
+.h-2xl{
+  @apply font-lato font-bold text-primary-text text-4xl
+}
+.h-3xl{
+  @apply font-lato font-bold text-primary-text text-5xl
+}
+.h-4xl{
+  @apply font-lato font-bold text-primary-text text-6xl
+}
+
+/* BODY */
+.b-1{
+  @apply font-inter font-normal text-primary-text leading-normal text-xs
+}
+.b-2{
+  @apply font-inter font-normal text-primary-text leading-normal text-sm
+}
+.b-3{
+  @apply font-inter font-normal text-primary-text leading-normal text-base
 }

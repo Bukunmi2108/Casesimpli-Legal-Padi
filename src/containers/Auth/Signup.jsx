@@ -1,6 +1,6 @@
 import React from 'react'
-import { Navbar, Footer, Logo, Btn } from '../components'
-import Abstract from '../assets/abstract.svg'
+import { Navbar, Footer, Logo, Btn } from '../../components'
+import Abstract from '../../assets/abstract.svg'
 
 
 const Signup = () => {
@@ -54,14 +54,8 @@ const Signup = () => {
               </div>
           </div>
           <div class="flex gap-2">
-            <Btn 
-                classes='bg-primary-blue text-white'
-                text='Register'
-            />
-            <Btn 
-                classes='bg-white text-primary-blue border border-primary-blue'
-                text='Login'
-            />
+            <button className='button-primary'>Sign up</button>
+            <button className='button-secondary'>Login</button>
           </div>
         </div>
       </div>

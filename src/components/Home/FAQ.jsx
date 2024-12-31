@@ -1,5 +1,5 @@
 import React from 'react'
-import { FAQq, Heading } from '../components'
+import { FAQq, Heading } from '..'
 
 
 

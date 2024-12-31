@@ -1,6 +1,6 @@
 import React from 'react'
-import Herovideo from '../assets/hero-video.png'
-import { Btn } from '../components'
+import Herovideo from '../../assets/hero-video.png'
+import { Btn } from '..'
 
 
 const Hero = () => {

@@ -24,7 +24,7 @@ module.exports = {
       },
       fontFamily: {
         lato: ['Lato', 'sans-serif'],
-        inter: ['Biryani', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
       },
       screens: {
         'xs': '320px',

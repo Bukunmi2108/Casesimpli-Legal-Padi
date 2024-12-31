@@ -1,7 +1,6 @@
 import React from 'react'
-import community from '../assets/team.jpg'
-import { Heading } from "../components"
-import Btn from './Btn'
+import community from '../../assets/team.jpg'
+import { Heading } from "../../components"
 import { MdOutlineContactSupport, MdOutlineEmail } from 'react-icons/md'
 import { FaLinkedin, FaXTwitter } from 'react-icons/fa6'
 import { BsTelephone } from 'react-icons/bs'
