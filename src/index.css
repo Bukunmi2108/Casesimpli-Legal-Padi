@@ -73,39 +73,56 @@ code {
 
 
 /* TEXT STYLES */
+
 /* HEADERS */
-.h-xs{
-  @apply font-lato font-bold text-primary-text text-sm
-}
-.h-sm{
-  @apply font-lato font-bold text-primary-text text-base
-}
-.h-md{
-  @apply font-lato font-bold text-primary-text text-xl
-}
-.h-lg{
-  @apply font-lato font-bold text-primary-text text-2xl
-}
-.h-xl{
-  @apply font-lato font-bold text-primary-text text-3xl
-}
-.h-2xl{
-  @apply font-lato font-bold text-primary-text text-4xl
-}
-.h-3xl{
-  @apply font-lato font-bold text-primary-text text-5xl
-}
-.h-4xl{
-  @apply font-lato font-bold text-primary-text text-6xl
+
+/* Base Styles */
+
+.heading {
+  @apply font-lato font-bold text-primary-text;
 }
 
+/* Responsive Sizes */
+.h-xs {
+  @apply heading text-xs sm:text-sm md:text-base lg:text-lg;
+}
+.h-sm {
+  @apply heading text-sm sm:text-base md:text-lg lg:text-xl;
+}
+.h-md {
+  @apply heading text-base sm:text-lg md:text-xl lg:text-2xl;
+}
+.h-lg {
+  @apply heading text-lg sm:text-xl md:text-2xl lg:text-3xl;
+}
+.h-xl {
+  @apply heading text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+}
+.h-2xl {
+  @apply heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+}
+.h-3xl {
+  @apply heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl;
+}
+.h-4xl {
+  @apply heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl;
+}
+
+
 /* BODY */
-.b-1{
-  @apply font-inter font-normal text-primary-text leading-normal text-xs
+
+/* Base Styles */
+.body-text {
+  @apply font-inter font-normal text-primary-text leading-normal;
 }
-.b-2{
-  @apply font-inter font-normal text-primary-text leading-normal text-sm
+
+/* Responsive Sizes */
+.b-1 {
+  @apply body-text text-xs;
 }
-.b-3{
-  @apply font-inter font-normal text-primary-text leading-normal text-base
+.b-2 {
+  @apply body-text text-sm;
+}
+.b-3 {
+  @apply body-text text-base;
 }
