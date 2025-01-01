@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { Btn, Logo } from '..'
+import { Logo, Button } from '..'
 import { Link } from 'react-router-dom'
 import { FiMenu } from "react-icons/fi";
 
@@ -18,6 +18,8 @@ const Navbar = () => {
         <Link to='/'>
           <Logo />
         </Link>
+
+
         {menuState && <div className="justify-center items-start md:items-center gap-4 flex md:hidden flex-col md:flex-row">
             <Link to='/home'>
               <div className="navlinks">Home</div>
@@ -27,29 +29,42 @@ const Navbar = () => {
             <div className="navlinks">De Law AI</div>
             <div className="navlinks">Speak to a Lawyer</div>
         </div>}
+
         {menuState && <div className="justify-start items-center gap-2 flex md:hidden">
           <Link to="/signup">
-            <button className='button-primary'>Sign up</button>
+            <Button text='Sign up' type='primary' size='small'/>
           </Link>
           <Link to="/login">
-            <button className='button-secondary'>Login</button>
+            <Button text='Login' type='secondary' size='small'/>
           </Link>
         </div>}
+
+
+
         <div className="justify-center items-start gap-4 hidden md:flex">
             <Link to='/home'>
               <div className="navlinks">Home</div>
             </Link>
-            <div className="navlinks">Videos</div>
-            <div className="navlinks">Categories</div>
-            <div className="navlinks">De Law AI</div>
-            <div className="navlinks">Speak to a Lawyer</div>
+            <Link to='/'>
+              <div className="navlinks">Videos</div>
+            </Link>
+            <Link to='/'>
+              <div className="navlinks">Categories</div>
+            </Link>
+            <Link to='/'>
+              <div className="navlinks">De Law AI</div>
+            </Link>
+            <Link to='/'>
+              <div className="navlinks">Speak to a Lawyer</div>
+            </Link>
         </div>
+
         <div className="justify-start items-center gap-2 hidden md:flex">
           <Link to="/signup">
-            <button className='button-primary'>Sign up</button>
+            <Button text='Sign up' type='primary' size='small'/>
           </Link>
           <Link to="/login">
-            <button className='button-secondary'>Login</button>
+            <Button text='Login' type='secondary' size='small'/>
           </Link>
         </div>
 

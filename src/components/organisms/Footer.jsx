@@ -7,9 +7,7 @@ const Footer = () => {
         <div className="max-w-6xl mx-auto flex flex-col justify-center items-center px-8 py-12 gap-16">
             <div className='flex flex-col md:flex-row md:justify-between gap-24 md:gap-0 items-start w-full'>
                 <div className="flex flex-col gap-4 items-start">
-                    <Logo 
-                        classes='text-white'
-                    />
+                    <Logo colour='white'/>
                     <div className="w-full md:w-[376px] text-white text-sm md:text-md font-normal font-inter leading-normal">
                         CaseSimpli Legal Padi is committed to transforming the justice system through cutting-edge technology, unlocking the potential of individuals and businesses alike. 
                     </div>

@@ -1,6 +1,7 @@
 import React from 'react'
-import Herovideo from '../../assets/hero-video.png'
-import { Btn } from '..'
+import Herovideo from '../../assets/png/hero-video.png'
+import { Button } from '..'
+import { IoIosLogIn } from "react-icons/io";
 
 
 const Hero = () => {
@@ -11,11 +12,7 @@ const Hero = () => {
             Your Legal Padi, Anytime, Anywhere
             </h1>
             <div className="text-center text-primary-text text-lg md:text-xl font-medium font-inter max-w-2xl ">Seamless access to legal information and education, solved complexities associated with engaging legal services.</div>
-            <div className='flex flex-row p-4 bg-primary-blue w-fit rounded gap-2'>
-                <span className='font-inter text-xl font-medium text-white'>
-                    Get started for free
-                </span>
-            </div>
+            <Button text='Get started for free' type='primary' size='large' icon={<IoIosLogIn />} />
         </div>
     </div>
 )

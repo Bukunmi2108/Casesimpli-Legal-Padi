@@ -1,7 +1,7 @@
 import React from 'react'
-import Court from '../../assets/court.svg'
-import AI from '../../assets/ai.svg'
-import Lawyer from '../../assets/lawyer.svg'
+import Court from '../../assets/svg/court.svg'
+import AI from '../../assets/svg/ai.svg'
+import Lawyer from '../../assets/svg/lawyer.svg'
 import { Heading } from '..'
 
 const Features = () => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navbar, Footer, Logo, Btn } from '../../components'
-import Abstract from '../../assets/abstract.svg'
+import Abstract from '../../assets/svg/abstract.svg'
 
 
 const Signup = () => {

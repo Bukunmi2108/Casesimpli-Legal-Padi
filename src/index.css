@@ -35,26 +35,6 @@ code {
 
 /* THIS ARE REUSABLE STYLES FOR THE PROJECTS. I WOULD ORGANISE THEM AS BEST AS I CAN*/
 
-/* BUTTONS */
-.button-primary{
-  @apply h-11 px-6 rounded-3xl justify-center items-center text-white text-base font-medium bg-primary-blue flex font-lato
-}
-.button-secondary{
-  @apply h-11 px-6 bg-white rounded-3xl border-2 border-primary-blue justify-center items-center flex text-primary-blue text-base font-medium font-lato
-}
-.button-grey-border{
-  @apply h-11 px-6 bg-white rounded-3xl border-2 border-primary-shade justify-center items-center flex text-primary-text text-base font-medium font-lato
-}
-.button-grey-bg{
-  @apply h-11 px-6 bg-primary-shade rounded-3xl justify-center items-center flex text-primary-text text-base font-medium font-lato
-}
-.button-underline-primary{
-  @apply h-11 px-6 border-b border-primary-blue justify-center items-center flex text-primary-blue text-base font-medium font-lato
-}
-.button-nounderline-grey{
-  @apply h-11 px-6 justify-center items-center flex text-primary-text text-base font-medium font-lato
-}
-
 
 
 /* NAVLINKS */
@@ -73,13 +53,11 @@ code {
 
 
 /* TEXT STYLES */
-
 /* HEADERS */
-
 /* Base Styles */
 
 .heading {
-  @apply font-lato font-bold text-primary-text;
+  @apply font-lato font-bold;
 }
 
 /* Responsive Sizes */
@@ -113,7 +91,7 @@ code {
 
 /* Base Styles */
 .body-text {
-  @apply font-inter font-normal text-primary-text leading-normal;
+  @apply font-inter font-normal leading-normal;
 }
 
 /* Responsive Sizes */
@@ -125,4 +103,11 @@ code {
 }
 .b-3 {
   @apply body-text text-base;
+}
+
+
+/* ICONS */
+
+.icon {
+  @apply w-6 h-6
 }

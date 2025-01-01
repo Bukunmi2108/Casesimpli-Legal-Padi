@@ -1,9 +1,10 @@
 import React from 'react'
-import community from '../../assets/team.jpg'
+import community from '../../assets/jpg/team.jpg'
 import { Heading } from "../../components"
 import { MdOutlineContactSupport, MdOutlineEmail } from 'react-icons/md'
 import { FaLinkedin, FaXTwitter } from 'react-icons/fa6'
 import { BsTelephone } from 'react-icons/bs'
+import { Button } from '../../components'
 
 
 const Contact = () => {
@@ -47,12 +48,7 @@ const Contact = () => {
                         })
                     }
                 </div>
-                <div className='flex flex-row p-4 bg-primary-blue w-fit rounded gap-2'>
-                    <MdOutlineContactSupport className='w-6 h-6 text-white' />
-                    <span className='font-inter text-xl font-medium text-white'>
-                        Contact us
-                    </span>
-                </div>
+                <Button icon={<MdOutlineContactSupport/>} text={'Contact us'} type='primary' size='large' className={'w-fit'}/>
             </div>
         </div>
     </div>
