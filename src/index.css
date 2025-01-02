@@ -91,7 +91,7 @@ code {
 
 /* Base Styles */
 .body-text {
-  @apply font-inter font-normal leading-normal;
+  @apply font-inter font-light leading-normal;
 }
 
 /* Responsive Sizes */

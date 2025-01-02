@@ -42,3 +42,9 @@ export { default as AllEditorsTemplate } from './templates/AllEditorsTemplate'
 export { default as AddAdminTemplate } from './templates/AddAdminTemplate'
 export { default as AllAdminsTemplate } from './templates/AllAdminsTemplate'
 export { default as AllCoursesTemplate } from './templates/AllCoursesTemplate'
+
+
+export { default as LegalDictionaryTemplate } from './templates/LegalDictionaryTemplate'
+
+
+export { default as SettingsTemplate } from './templates/SettingsTemplate'

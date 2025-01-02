@@ -54,11 +54,11 @@ const Nav = () => {
     { text: 'De Law AI', icon: <FaRobot className='icon' />, link: '/feed' },
     { text: 'All Categories', icon: <MdCategory className='icon' />, link: '/feed' },
     { text: 'Call a Lawyer', icon: <IoIosCall className='icon' />, link: '/feed' },
-    { text: 'Settings', icon: <IoIosSettings className='icon' />, link: '/feed' },
+    { text: 'Settings', icon: <IoIosSettings className='icon' />, link: '/settings' },
   ];
 
   const learningMenuItems = [
-    { text: 'Legal Dictionary', icon: <GoBook className='icon' />, link: '/feed' },
+    { text: 'Legal Dictionary', icon: <GoBook className='icon' />, link: '/dictionary' },
     { text: 'Featured Courses', icon: <RiBookShelfLine className='icon' />, link: '/featured' },
     { text: 'My Learning', icon: <IoSchoolOutline className='icon' />, link: '/mylearning' },
     { text: 'Bookmarks', icon: <CiBookmark className='icon' />, link: '/bookmark' },

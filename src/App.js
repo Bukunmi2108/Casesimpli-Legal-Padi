@@ -1,4 +1,4 @@
-import { Home, Login, Signup, Feed, CourseView, Featured, MyLearning, BookMark, Notification, AddCourse, ViewCourses, AddEditor, AddAdmin, AllEditors, AllAdmins, AllCourses } from './pages'
+import { Home, Login, Signup, Feed, CourseView, Featured, MyLearning, BookMark, Notification, AddCourse, ViewCourses, AddEditor, AddAdmin, AllEditors, AllAdmins, AllCourses, LegalDictionary, Settings } from './pages'
 import { Routes, Route } from 'react-router-dom';
 
 
@@ -28,6 +28,11 @@ function App() {
         <Route path="/addadmin" element={<AddAdmin />} />
         <Route path="/alladmins" element={<AllAdmins />} />
         <Route path="/allcourses" element={<AllCourses />} />
+
+
+        <Route path="/dictionary" element={<LegalDictionary />} />
+
+        <Route path="/settings" element={<Settings />} />
       </Routes>
     </>
   );

@@ -18,6 +18,13 @@ const AllCoursesTemplate = () => {
           <ViewCoursesMiniDisplay />
           <ViewCoursesMiniDisplay />
           <ViewCoursesMiniDisplay />
+          <ViewCoursesMiniDisplay />
+          <ViewCoursesMiniDisplay />
+          <ViewCoursesMiniDisplay />
+          <ViewCoursesMiniDisplay />
+          <ViewCoursesMiniDisplay />
+          <ViewCoursesMiniDisplay />
+          <ViewCoursesMiniDisplay />
 
         </div>
       </section>

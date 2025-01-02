@@ -11,7 +11,7 @@ const CourseDisplay = ({title, author, course_uid, thumbnail, likes, tags, link}
   
   return (
     <Link to={'/course/1'}>
-      <div className='flex flex-col gap-4 w-full bg-white rounded-b-xl shadow-sm'>
+      <div className='flex flex-col gap-4 w-full bg-white rounded-xl shadow-sm'>
         <div className='w-full bg-gray-400 rounded-t-xl h-64 relative'>
           <div className='absolute top-2 right-2'>
             <IoBookmarkOutline className='icon text-white' />

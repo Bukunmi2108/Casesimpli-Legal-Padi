@@ -18,3 +18,7 @@ export { default as AllEditors } from './Editor/AllEditors'
 export { default as AddAdmin } from './Admin/AddAdmin'
 export { default as AllAdmins } from './Admin/AllAdmins'
 export { default as AllCourses } from './Admin/AllCourses'
+
+export { default as LegalDictionary } from './Dictionary/LegalDictionary'
+
+export { default as Settings } from './User/Settings'
