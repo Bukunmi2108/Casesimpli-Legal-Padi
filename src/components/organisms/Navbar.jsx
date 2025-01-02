@@ -13,8 +13,8 @@ const Navbar = () => {
   }
 
   return (
-    <div className='w-full z-30 shadow-sm'>
-      <div className="mx-auto max-w-7xl justify-between items-start md:items-center flex w-full px-4 py-2 flex-col md:flex-row gap-4 md:gap-0 relative">
+    <div className='w-full z-30 shadow-md'>
+      <div className="mx-auto max-w-8xl justify-between items-start md:items-center flex w-full px-4 py-4 flex-col md:flex-row gap-4 md:gap-0 relative">
         <Link to='/'>
           <Logo />
         </Link>
@@ -31,12 +31,8 @@ const Navbar = () => {
         </div>}
 
         {menuState && <div className="justify-start items-center gap-2 flex md:hidden">
-          <Link to="/signup">
-            <Button text='Sign up' type='primary' size='small'/>
-          </Link>
-          <Link to="/login">
-            <Button text='Login' type='secondary' size='small'/>
-          </Link>
+          <Button link={'/signup'} text='Sign up' type='primary' size='small'/>
+          <Button link={'/login'} text='Login' type='secondary' size='small'/>
         </div>}
 
 
@@ -60,15 +56,11 @@ const Navbar = () => {
         </div>
 
         <div className="justify-start items-center gap-2 hidden md:flex">
-          <Link to="/signup">
-            <Button text='Sign up' type='primary' size='small'/>
-          </Link>
-          <Link to="/login">
-            <Button text='Login' type='secondary' size='small'/>
-          </Link>
+          <Button link={'/signup'} text='Sign up' type='primary' size='small'/>
+          <Button link={'/login'} text='Login' type='secondary' size='small'/>
         </div>
 
-        <FiMenu className='w-8 h-8 absolute top-2 right-5 flex md:hidden' onClick={handleMenuClick} />
+        <FiMenu className='w-8 h-8 absolute top-4 right-5 flex md:hidden' onClick={handleMenuClick} />
       </div>
     </div>
   )

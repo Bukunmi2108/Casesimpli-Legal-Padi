@@ -12,7 +12,7 @@ const Hero = () => {
             Your Legal Padi, Anytime, Anywhere
             </h1>
             <div className="text-center text-primary-text text-lg md:text-xl font-medium font-inter max-w-2xl ">Seamless access to legal information and education, solved complexities associated with engaging legal services.</div>
-            <Button text='Get started for free' type='primary' size='large' icon={<IoIosLogIn />} />
+            <Button text='Get started for free' link={'/signup'} type='primary'  size='large' icon={<IoIosLogIn />} />
         </div>
     </div>
 )

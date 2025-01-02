@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Button = ({ 
     text, 
@@ -7,7 +8,8 @@ const Button = ({
     onClick, 
     disabled = false,
     className: propsClassName,
-    icon
+    icon,
+    link
 }) => {
 
     const buttonTypes = {
@@ -42,12 +44,23 @@ const Button = ({
                        ${propsClassName || ''}`; // Concatenate with optional propsClassName
 
     return (
+        link?
+        <Link to={link}>
+            <button 
+                type={type} 
+                onClick={onClick} 
+                disabled={disabled} 
+                className={className} 
+            >
+                {icon && <span className='mr-2'>{icon}</span>}
+                {text}
+            </button>
+        </Link> :
         <button 
             type={type} 
             onClick={onClick} 
             disabled={disabled} 
-            className={className} 
-        >
+            className={className} >
             {icon && <span className='mr-2'>{icon}</span>}
             {text}
         </button>
