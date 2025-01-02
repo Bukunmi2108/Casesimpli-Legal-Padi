@@ -15,8 +15,8 @@ const Button = ({
         secondary: 'border-primary-blue border-2 text-primary-blue',
         'grey-border': 'border-2 border-primary-shade text-primary-text',
         'grey-bg': 'bg-primary-shade border border-primary-text text-primary-text',
-        underline: 'border-b border-primary-blue text-primary-blue',
-        muted: 'text-primary-text',
+        underline: 'border-b border-primary-blue text-primary-blue rounded-none',
+        muted: 'text-primary-text rouunded-none',
     };
 
     const buttonSizes = {

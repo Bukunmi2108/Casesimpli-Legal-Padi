@@ -111,3 +111,9 @@ code {
 .icon {
   @apply w-6 h-6
 }
+
+
+/* MAIN */
+.main{
+  @apply bg-gray-50 py-8 px-4 w-full mx-auto
+}

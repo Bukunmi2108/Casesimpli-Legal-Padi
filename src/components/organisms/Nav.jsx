@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { MdMenu } from "react-icons/md";
 import { MdClose, MdCategory, MdOutlineAddBox  } from 'react-icons/md';
 import { Button, Sidelink } from '../../components'
+import { Link } from 'react-router-dom';
 import { IoHomeSharp, IoSchoolOutline } from "react-icons/io5";
 import { FaRobot } from "react-icons/fa";
 import { IoIosCall, IoIosSettings, IoIosNotificationsOutline, IoMdLogOut } from "react-icons/io";
@@ -17,7 +18,7 @@ import { FaUsers } from "react-icons/fa";
 const Nav = () => {
 
     const [menuState, setMenuState] = useState(true)
-    const [role, setRole] = useState('user')
+    const [role, setRole] = useState('editor')
 
     /// role can be user, premium, editor, admin. i would use use context later to manage this
     
@@ -31,6 +32,52 @@ const Nav = () => {
     const handleMenu = () => {
         setMenuState(!menuState)
     }
+
+      // Helper function to conditionally render sections
+  const renderSection = (title, items) => (
+    UserRole && items.length > 0 && (
+      <>
+        <span className='h-sm text-primary-text'>{title}</span>
+        <div className='flex flex-col gap-2 justify-start items-start w-full'>
+          {items.map((item) => (
+            <Link to={item.link} key={item.text} className='w-full'>
+              <Sidelink key={item.text} {...item} />
+            </Link>
+          ))}
+        </div>
+      </>
+    )
+  );
+
+  const userMenuItems = [
+    { text: 'Home', icon: <IoHomeSharp className='icon' />, link: '/feed' },
+    { text: 'De Law AI', icon: <FaRobot className='icon' />, link: '/feed' },
+    { text: 'All Categories', icon: <MdCategory className='icon' />, link: '/feed' },
+    { text: 'Call a Lawyer', icon: <IoIosCall className='icon' />, link: '/feed' },
+    { text: 'Settings', icon: <IoIosSettings className='icon' />, link: '/feed' },
+  ];
+
+  const learningMenuItems = [
+    { text: 'Legal Dictionary', icon: <GoBook className='icon' />, link: '/feed' },
+    { text: 'Featured Courses', icon: <RiBookShelfLine className='icon' />, link: '/feed' },
+    { text: 'My Learning', icon: <IoSchoolOutline className='icon' />, link: '/feed' },
+    { text: 'Bookmarks', icon: <CiBookmark className='icon' />, link: '/feed' },
+    { text: 'Notifications', icon: <IoIosNotificationsOutline className='icon' />, link: '/feed' },
+  ];
+
+  const editorMenuItems = [
+    { text: 'Add new Courses', icon: <MdOutlineAddBox className='icon' />, link: '/feed' },
+    { text: 'View your Courses', icon: <HiOutlineViewGridAdd className='icon' />, link: '/feed' },
+  ];
+
+  const adminMenuItems = [
+    { text: 'Add Editor', icon: <IoIosPersonAdd className='icon' />, link: '/feed' },
+    { text: 'Add Admin', icon: <IoIosPersonAdd className='icon' />, link: '/feed' },
+    { text: 'All Admins', icon: <FaUsers className='icon' />, link: '/feed' },
+    { text: 'All Editors', icon: <FaUsers className='icon' />, link: '/feed' },
+    { text: 'All Courses', icon: <FaUsers className='icon' />, link: '/feed' },
+  ];
+
   return (
     <header className='bg-white w-full border-b border-gray-400 relative z-50'>
         <nav className='flex justify-between items-center max-w-7xl mx-auto px-4 py-4 md:py-6'>
@@ -44,46 +91,21 @@ const Nav = () => {
             <Button text={UserRole[role]} type='grey-bg' size='medium'/>
         </nav>
 
-        <nav className={`${menuState? '-left-96' : 'flex'} flex-col gap-8 items-start justify-start absolute top-[83px] md:top-[99px] left-0 bg-white border border-r-gray-500 px-4 py-4 transition-all ease-in-out duration-400 z-50`}>
+        <nav className={`${(menuState === true)? '-left-96' : 'left-0'} flex flex-col gap-8 items-start justify-start absolute top-[83px] md:top-[99px] bg-white border border-r-gray-500 px-4 py-4 transition-all ease-in-out duration-400 z-50`}>
             <div className='flex flex-col gap-2 justify-start items-start w-full'>
-                <span className='h-sm text-primary-text'>Home</span>
-                <div className='flex flex-col gap-2 justify-start items-start w-full'>
-                    <Sidelink text={'Home'} type='primary' icon={<IoHomeSharp className='icon' />}/>
-                    <Sidelink text={'De Law AI'} type='primary' icon={<FaRobot className='icon' />}/>
-                    <Sidelink text={'All Categories'} type='primary' icon={<MdCategory className='icon' />}/>
-                    <Sidelink text={'Call a Lawyer'} type='primary' icon={<IoIosCall className='icon' />}/>
-                    <Sidelink text={'Settings'} type='primary' icon={<IoIosSettings className='icon' />}/>
-                </div>
+                {renderSection('User', userMenuItems)}
             </div>
             
             <div className='flex flex-col gap-2 justify-start items-start w-full'>
-                <span className='h-sm text-primary-text'>Learning</span>
-                <div className='flex flex-col gap-2 justify-start items-start w-full'>
-                    <Sidelink text={'Legal Dictionary'} type='primary' icon={<GoBook className='icon' />}/>
-                    <Sidelink text={'Featured Courses'} type='primary' icon={<RiBookShelfLine className='icon' />}/>
-                    <Sidelink text={'My Learning'} type='primary' icon={<IoSchoolOutline className='icon' />}/>
-                    <Sidelink text={'Bookmarks'} type='primary' icon={<CiBookmark className='icon' />}/>
-                    <Sidelink text={'Notifications'} type='primary' icon={<IoIosNotificationsOutline className='icon' />}/>
-                </div>
+                {renderSection('Learning', learningMenuItems)}
             </div>
             
             {(role === "editor" || role === "admin") && <div className='flex flex-col gap-2 justify-start items-start w-full'>
-                <span className='h-sm text-primary-text'>Editor</span>
-                <div className='flex flex-col gap-2 justify-start items-start w-full'>
-                    <Sidelink text={'Add new Courses'} type='primary' icon={<MdOutlineAddBox  className='icon' />}/>
-                    <Sidelink text={'View your Courses'} type='primary' icon={<HiOutlineViewGridAdd  className='icon' />}/>
-                </div>
+                {renderSection('Editor', editorMenuItems)}
             </div>}
               
             {role === "admin" && <div className='flex flex-col gap-2 justify-start items-start w-full'>
-                <span className='h-sm text-primary-text'>Admin</span>
-                <div className='flex flex-col gap-2 justify-start items-start w-full'>
-                    <Sidelink text={'Add Editor'} type='primary' icon={<IoIosPersonAdd   className='icon' />}/>
-                    <Sidelink text={'Add Admin'} type='primary' icon={<IoIosPersonAdd   className='icon' />}/>
-                    <Sidelink text={'All Admins'} type='primary' icon={<FaUsers  className='icon' />}/>
-                    <Sidelink text={'All Editors'} type='primary' icon={<FaUsers  className='icon' />}/>
-                    <Sidelink text={'All Courses'} type='primary' icon={<FaUsers  className='icon' />}/>
-                </div>
+                {renderSection('Admin', adminMenuItems)}
             </div>}
             
             <Sidelink text={'Logout'} type='primary' icon={<IoMdLogOut className='icon' />}/>
