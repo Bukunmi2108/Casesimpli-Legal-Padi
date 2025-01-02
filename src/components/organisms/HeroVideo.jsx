@@ -14,7 +14,7 @@ const HeroVideo = () => {
             />
 
             <div className='w-full mx-auto'>
-                <ReactPlayer className={'w-full xs:h-[240px] sm:h-[360px] md:h-[480px] lg:h-[640px] mx-auto'} controls  loop width={'w-full'} height={'h-96'} url='videos/video.mp4' />
+                <ReactPlayer className={'w-full h-full aspect-video mx-auto'} controls  loop width={'w-full'} height={'h-96'} url='videos/video.mp4' />
             </div>
 
         </div>

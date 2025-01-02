@@ -18,7 +18,7 @@ import { FaUsers } from "react-icons/fa";
 const Nav = () => {
 
     const [menuState, setMenuState] = useState(true)
-    const [role, setRole] = useState('editor')
+    const [role, setRole] = useState('admin')
 
     /// role can be user, premium, editor, admin. i would use use context later to manage this
     
@@ -59,23 +59,23 @@ const Nav = () => {
 
   const learningMenuItems = [
     { text: 'Legal Dictionary', icon: <GoBook className='icon' />, link: '/feed' },
-    { text: 'Featured Courses', icon: <RiBookShelfLine className='icon' />, link: '/feed' },
-    { text: 'My Learning', icon: <IoSchoolOutline className='icon' />, link: '/feed' },
-    { text: 'Bookmarks', icon: <CiBookmark className='icon' />, link: '/feed' },
-    { text: 'Notifications', icon: <IoIosNotificationsOutline className='icon' />, link: '/feed' },
+    { text: 'Featured Courses', icon: <RiBookShelfLine className='icon' />, link: '/featured' },
+    { text: 'My Learning', icon: <IoSchoolOutline className='icon' />, link: '/mylearning' },
+    { text: 'Bookmarks', icon: <CiBookmark className='icon' />, link: '/bookmark' },
+    { text: 'Notifications', icon: <IoIosNotificationsOutline className='icon' />, link: '/notification' },
   ];
 
   const editorMenuItems = [
-    { text: 'Add new Courses', icon: <MdOutlineAddBox className='icon' />, link: '/feed' },
-    { text: 'View your Courses', icon: <HiOutlineViewGridAdd className='icon' />, link: '/feed' },
+    { text: 'Add new Courses', icon: <MdOutlineAddBox className='icon' />, link: '/addcourse' },
+    { text: 'View your Courses', icon: <HiOutlineViewGridAdd className='icon' />, link: '/viewcourses' },
   ];
 
   const adminMenuItems = [
-    { text: 'Add Editor', icon: <IoIosPersonAdd className='icon' />, link: '/feed' },
-    { text: 'Add Admin', icon: <IoIosPersonAdd className='icon' />, link: '/feed' },
-    { text: 'All Admins', icon: <FaUsers className='icon' />, link: '/feed' },
-    { text: 'All Editors', icon: <FaUsers className='icon' />, link: '/feed' },
-    { text: 'All Courses', icon: <FaUsers className='icon' />, link: '/feed' },
+    { text: 'Add Editor', icon: <IoIosPersonAdd className='icon' />, link: '/addeditor' },
+    { text: 'Add Admin', icon: <IoIosPersonAdd className='icon' />, link: '/addadmin' },
+    { text: 'All Admins', icon: <FaUsers className='icon' />, link: '/alladmins' },
+    { text: 'All Editors', icon: <FaUsers className='icon' />, link: '/alleditors' },
+    { text: 'All Courses', icon: <FaUsers className='icon' />, link: '/allcourses' },
   ];
 
   return (

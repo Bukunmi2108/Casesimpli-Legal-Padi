@@ -8,6 +8,11 @@ export { default as SearchInput } from './atoms/SearchInput'
 export { default as FAQq } from './molecules/FAQq'
 export { default as Heading } from './molecules/Heading'
 export { default as CourseDisplay } from './molecules/CourseDisplay'
+export { default as CourseMiniDisplay } from './molecules/CourseMiniDisplay'
+export { default as NotificationMiniDisplay } from './molecules/NotificationMiniDisplay'
+export { default as BookmarkMiniDisplay } from './molecules/BookmarkMiniDisplay'
+export { default as ViewCoursesMiniDisplay } from './molecules/ViewCoursesMiniDisplay'
+
 
 export { default as Hero } from './organisms/Hero'
 export { default as Features } from './organisms/Features'
@@ -23,3 +28,17 @@ export { default as Newsletter } from './organisms/Newsletter'
 
 
 export { default as UserFeed } from './templates/UserFeed'
+export { default as FeaturedCourses } from './templates/FeaturedCourses'
+export { default as CourseViewTemplate } from './templates/CourseViewTemplate'
+export { default as MyLearningTemplate } from './templates/MyLearningTemplate'
+export { default as BookMarkTemplate } from './templates/BookMarkTemplate'
+export { default as NotificationTemplate } from './templates/NotificationTemplate'
+export { default as AddCourseTemplate } from './templates/AddCourseTemplate'
+export { default as ViewCoursesTemplate } from './templates/ViewCoursesTemplate'
+
+export { default as AddEditorTemplate } from './templates/AddEditorTemplate'
+export { default as AllEditorsTemplate } from './templates/AllEditorsTemplate'
+
+export { default as AddAdminTemplate } from './templates/AddAdminTemplate'
+export { default as AllAdminsTemplate } from './templates/AllAdminsTemplate'
+export { default as AllCoursesTemplate } from './templates/AllCoursesTemplate'
