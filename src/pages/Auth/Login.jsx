@@ -29,6 +29,7 @@ const Login = () => {
       console.log(response.data)
       login(response.data.accessToken, response.data.refreshToken, response.data.user)
       alert('Login successful');
+      navigate('/feed')
     })
     .catch((error) => {
       console.error(error)
