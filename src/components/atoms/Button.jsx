@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 const Button = ({ 
     text, 
     type = 'primary', 
+    buttonFormType = 'button',
     size = 'medium', 
     onClick, 
     disabled = false,
@@ -47,7 +48,7 @@ const Button = ({
         link?
         <Link to={link}>
             <button 
-                type={type} 
+                type={buttonFormType} 
                 onClick={onClick} 
                 disabled={disabled} 
                 className={className} 
@@ -57,7 +58,7 @@ const Button = ({
             </button>
         </Link> :
         <button 
-            type={type} 
+            type={buttonFormType} 
             onClick={onClick} 
             disabled={disabled} 
             className={className} >

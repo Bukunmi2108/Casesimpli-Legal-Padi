@@ -13,7 +13,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className='w-full z-30 shadow-md'>
+    <div className='w-full z-100 shadow-md'>
       <div className="mx-auto max-w-8xl justify-between items-start md:items-center flex w-full px-4 py-4 flex-col md:flex-row gap-4 md:gap-0 relative">
         <Link to='/'>
           <Logo />
