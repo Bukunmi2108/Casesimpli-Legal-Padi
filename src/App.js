@@ -12,7 +12,7 @@ function App() {
 
 
         <Route path="/feed" element={<Feed />} />
-        <Route path="/course/1" element={<CourseView />} />
+        <Route path="/course/:course_uid" element={<CourseView />} />
         <Route path="/featured" element={<Featured />} />
         <Route path="/mylearning" element={<MyLearning />} />
         <Route path="/bookmark" element={<BookMark />} />

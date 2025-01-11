@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Navbar, Footer, Input, Button } from '../../components'
 import axios from 'axios'
-import { useBackendDomain } from '../../contexts/BackendDomainContext'
+import authService from '../../modules/authService';
 import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
@@ -14,7 +14,6 @@ const Signup = () => {
   });
 
   const navigate = useNavigate();
-  const {baseUrl} = useBackendDomain();
 
   const handleChange = (name, value) => {
     setFormData({ ...formData, [name]: value });
@@ -34,10 +33,7 @@ const Signup = () => {
     if (psword_match) {
       alert(psword_match);
     } else{
-
-      // Handle form submission with formData here 
-
-      axios.post(`${baseUrl}/user/signup`, formData)
+      authService.register(formData)
       .then((response) => {
         alert('Signup successful');
         navigate('/login');

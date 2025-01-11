@@ -1,9 +1,7 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { Navbar, Footer, Input, Button } from '../../components'
-import { useBackendDomain } from '../../contexts/BackendDomainContext'
-import { AuthContext } from '../../contexts/AuthContext'
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import authService from '../../modules/authService'
 
 
 const Login = () => {
@@ -12,30 +10,26 @@ const Login = () => {
     password: '',
   });
 
-  const {baseUrl} = useBackendDomain();
-  const { login } = useContext(AuthContext)
   const navigate = useNavigate();
   
   const handleChange = (name, value) => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData)
-
-    axios.post(`${baseUrl}/user/login`, formData)
-    .then((response) => {
-      console.log(response.data)
-      login(response.data.accessToken, response.data.refreshToken, response.data.user)
+  
+    try {
+      await authService.login(formData.email, formData.password)
       alert('Login successful');
-      navigate('/feed')
-    })
-    .catch((error) => {
-      console.error(error)
-      alert(error.response.data.message)
-    })
-  }
+      navigate('/feed');
+    } catch (error) {
+      alert('Login failed')
+      console.error(error);
+    }
+    
+
+  };
   return (
     <div>
       <Navbar />

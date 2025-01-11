@@ -1,40 +1,104 @@
-import React from 'react'
-import { RiArrowDropDownLine } from "react-icons/ri";
+import React, { useEffect, useState } from 'react'
+import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 import { Button } from '..'
 import { FcLike } from "react-icons/fc";
 import { CiBookmark } from "react-icons/ci";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
+import { useParams } from 'react-router-dom';
+import courseService from '../../modules/courseService';
+
 
 
 const CourseViewTemplate = () => {
+
+  const [course, setCourse] = useState({})
+  const [courseVideos, setCourseVideos] = useState({})
+  const [tags, setTags] = useState([])
+  const [currentVideo, setCurrentVideo] = useState('')
+  const [contentDropdown, setContentDropdown] = useState(false)
+  const {course_uid} = useParams()
+
+  useEffect(() => {
+    const fetchCourse = async() => {
+      const res = await courseService.getACourse(course_uid)
+      setCourse(res)
+      setCourseVideos(res.courses)
+      const firstVideo = Object.entries(res.courses)[0][1]
+      
+      const urlCheck = courseService.watchUrlToEmbedUrl(firstVideo)
+      if (urlCheck) {
+        setCurrentVideo(urlCheck)
+      } else {
+        setCurrentVideo(firstVideo);
+      }
+    }
+
+    const fetchTags = async() => {
+      const res = await courseService.getCourseTags(course_uid)
+      setTags(res)
+    }
+
+    fetchCourse()
+    fetchTags()
+  }, [])
+
+  
+  const handleContentDropdown = () => {
+    setContentDropdown(!contentDropdown)
+  }
+
+  const onVideoChange = (url) => {
+    const urlCheck = courseService.watchUrlToEmbedUrl(url)
+      if (urlCheck) {setCurrentVideo(urlCheck)} else {setCurrentVideo(url)}}
+
   return (
     <main className='main divide-y divide-primary-text'>
       <section className='max-w-7xl mx-auto pb-8'> 
-        <div className='b-3'>Home - Videos - The Rule of Law</div>
+        <div className='b-3'>Home - Videos - {course.title}</div>
 
-        <div className='flex flex-col w-full gap-4 mt-6'>
+        {currentVideo && <div className='flex flex-col w-full gap-4 mt-6'>
           <div>
             <iframe
               width='100%'
               className='h-full aspect-video'
-              src='https://www.youtube.com/embed/2YBtspm8j8M'
-              title='YouTube video player'
+              src={currentVideo} //embed the current video here later
+              title='Course Video Player'
               frameBorder='0'
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
               allowFullScreen
             ></iframe>
           </div>
 
-          <div className='w-full flex justify-between items-center p-4 bg-gray-300 rounded-xl font-lato '>
+          <div onClick={handleContentDropdown} className='w-full flex justify-between items-center p-4 bg-gray-300 rounded-xl font-lato '>
             <span>View Course Content</span>
-            <RiArrowDropDownLine className='icon' />
+            {!contentDropdown? <RiArrowDropDownLine className='icon' /> : <RiArrowDropUpLine className='icon' />}
           </div>
-        </div>
+
+          {contentDropdown && <div className='w-full p-4 overflow-x-scroll bg-gray-100 rounded-xl font-lato'>
+            <div className='flex flex-row overflow-x-visible gap-2'>
+
+              {Object.entries(courseVideos).map(([key, value]) => (
+                <div key={Math.random() * 100} onClick={
+                  () => {
+                    const urlCheck = courseService.watchUrlToEmbedUrl(value)
+                      if (urlCheck) {setCurrentVideo(urlCheck)} else {setCurrentVideo(value)}}
+                } className='w-24 p-2 flex-shrink-0 bg-gray-200 hover:bg-blue-100'>
+                  <div className='relative rounded-xl'>
+                    <img src='https://i.pravatar.cc/300' className='w-full h-12 object-cover'/>
+                    <div className='absolute top-0 left-0 w-full h-full bg-black opacity-90'></div>
+                  </div>
+                  <h6 className='text-xs text-ellipsis line-clamp-2 font-lato rounded-xl'>{key}</h6>
+                </div>
+              ))}
+              
+            </div>
+          </div>}
+        </div>}
 
         <div className='py-4 flex flex-col gap-4 w-full'>
           <div className='w-full flex flex-col gap-1'>
-            <h3 className='h-3xl line-clamp-2 text-ellipsis'>Rule of Law in Nigeria</h3>
-            <h5 className='text-sm font-light font-lato'>By Bukunmi Akinyemi</h5>
+            <h3 className='h-3xl line-clamp-2 text-ellipsis'>{course.title}</h3>
+            {course.user && <h5 className='text-sm font-light font-lato'>By {course.user.first_name} {course.user.last_name}</h5>}
 
             <div className='flex flex-row items-center justify-between w-full my-2'>
               <div className='flex items-center justify-start gap-2'>
@@ -46,20 +110,17 @@ const CourseViewTemplate = () => {
             </div>
           </div>
 
-          <div className='flex gap-2 flex-wrap'>
-            <Button text={'Contract Law'} type='grey-bg' size='small' className={'w-fit'}/>
-            <Button text={'Tort Law'} type='grey-bg' size='small' className={'w-fit'}/>
-            <Button text={'Contract Law'} type='grey-bg' size='small' className={'w-fit'}/>
-            <Button text={'Tort Law'} type='grey-bg' size='small' className={'w-fit'}/>
-            <Button text={'Contract Law'} type='grey-bg' size='small' className={'w-fit'}/>
-            <Button text={'Tort Law'} type='grey-bg' size='small' className={'w-fit'}/>
-          </div>
+          {tags && <div className='flex gap-2 flex-wrap'>
+            {tags.map(({name, id}) => (
+              <Button key={id} text={name} type='grey-bg' size='small' className={'w-fit'}/>
+            ))}
+          </div>}
         </div>
 
         <div className='flex flex-col gap-4 py-4'>
           <h3 className='h-md'>Course Description</h3>
           <p className='b-2 font-thin'>
-            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+            {course.description}
           </p>
         </div>
 

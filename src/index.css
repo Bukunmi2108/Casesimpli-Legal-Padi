@@ -115,5 +115,5 @@ code {
 
 /* MAIN */
 .main{
-  @apply bg-gray-50 py-8 px-4 w-full mx-auto
+  @apply bg-gray-50 py-8 px-4 w-full mx-auto pt-[95px] md:pt-[110px]
 }

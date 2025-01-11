@@ -1,4 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import authService from '../../modules/authService';
+import axios from 'axios';
+
 import { MdMenu } from "react-icons/md";
 import { MdClose, MdCategory, MdOutlineAddBox  } from 'react-icons/md';
 import { Button, Sidelink } from '../../components'
@@ -16,9 +19,17 @@ import { FaUsers } from "react-icons/fa";
 const Nav = () => {
 
   const [menuState, setMenuState] = useState(true)
-  const [role, setRole] = useState('admin')
+  const [role, setRole] = useState('')
 
-  /// role can be user, premium, editor, admin. i would use use context later to manage this
+  useEffect(() => {
+    const GetRole = async() => {
+      const res = await authService.getRole()
+      setRole(res)
+    }
+    GetRole()
+  }, [])
+
+  /// role can be user, premium, editor, admin. 
   
   const UserRole = {
     user: "Upgrade",
