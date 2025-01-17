@@ -1,7 +1,18 @@
-import React from 'react'
-import { Button, ViewCoursesMiniDisplay } from '..'
+import React, { useEffect, useState } from 'react'
+import adminService from '../../modules/adminService'
+
 
 const AllAdminsTemplate = () => {
+  const [allAdmins, setAllAdmins] = useState([])
+
+  useEffect(() => {
+    const fetchAdmin = async() => {
+      const res = await adminService.getAdmins()
+      setAllAdmins(res)
+    }
+    fetchAdmin()
+  }, [])
+
   return (
     <main className='main overflow-x-hidden'>
       <section className='max-w-7xl mx-auto py-8'>
@@ -13,54 +24,19 @@ const AllAdminsTemplate = () => {
                 <th className='p-4'>S/N</th>
                 <th className='p-4'>Full Name</th>
                 <th className='p-4'>Email</th>
-                <th className='p-4'>Phone Number</th>
                 <th className='p-4'>Role</th>
               </tr>
             </thead>
-            <tbody className='bg-gray-100 b-3 divide-y divide-gray-500'>
-              <tr className=''>
-                <td className='p-4'>1</td>
-                <td className='p-4'>Bukunmi Akinyemi</td>
-                <td className='p-4'>bkakinyemi21@gmail.com</td>
-                <td className='p-4'>09137099774</td>
-                <td className='p-4'>Admin</td>
-              </tr>
-              <tr className=''>
-                <td className='p-4'>1</td>
-                <td className='p-4'>Bukunmi Akinyemi</td>
-                <td className='p-4'>bkakinyemi21@gmail.com</td>
-                <td className='p-4'>09137099774</td>
-                <td className='p-4'>Admin</td>
-              </tr>
-              <tr className=''>
-                <td className='p-4'>1</td>
-                <td className='p-4'>Bukunmi Akinyemi</td>
-                <td className='p-4'>bkakinyemi21@gmail.com</td>
-                <td className='p-4'>09137099774</td>
-                <td className='p-4'>Admin</td>
-              </tr>
-              <tr className=''>
-                <td className='p-4'>1</td>
-                <td className='p-4'>Bukunmi Akinyemi</td>
-                <td className='p-4'>bkakinyemi21@gmail.com</td>
-                <td className='p-4'>09137099774</td>
-                <td className='p-4'>Admin</td>
-              </tr>
-              <tr className=''>
-                <td className='p-4'>1</td>
-                <td className='p-4'>Bukunmi Akinyemi</td>
-                <td className='p-4'>bkakinyemi21@gmail.com</td>
-                <td className='p-4'>09137099774</td>
-                <td className='p-4'>Admin</td>
-              </tr>
-              <tr className=''>
-                <td className='p-4'>1</td>
-                <td className='p-4'>Bukunmi Akinyemi</td>
-                <td className='p-4'>bkakinyemi21@gmail.com</td>
-                <td className='p-4'>09137099774</td>
-                <td className='p-4'>Admin</td>
-              </tr>
-            </tbody>
+            {allAdmins && <tbody className='bg-gray-100 b-3 divide-y divide-gray-500'>
+              {allAdmins.map((Admin, index) => (
+                <tr key={index} className=''>
+                  <td className='p-4'>{index + 1}</td>
+                  <td className='p-4'>{Admin.first_name} {Admin.last_name}</td>
+                  <td className='p-4'>{Admin.email}</td>
+                  <td className='p-4'>{Admin.role}</td>
+                </tr>
+              ))}
+            </tbody>}
           </table>
         </div>
       </section>
@@ -68,4 +44,4 @@ const AllAdminsTemplate = () => {
   )
 }
 
-export default AllAdminsTemplate
+export default AllAdminsTemplate;

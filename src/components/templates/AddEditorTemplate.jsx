@@ -25,6 +25,7 @@ const AddEditorTemplate = () => {
     try{
       const res = await adminService.createEditor(formData)
       console.log(res)
+      alert('Editor Created Successfully')
       navigate('/alleditors')
     } catch(error) {
       console.log(error);

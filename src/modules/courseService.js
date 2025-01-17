@@ -2,7 +2,7 @@ import axios from "axios";
 import authService from "./authService";
 
 const API_BASE_URL = "http://localhost:8000/api/v1"; // backend's URL
-const headers = authService.getAuthHeader()
+const headers = await authService.getAuthHeader()
 
 const courseService = {
   createCourse: async(data) => {
@@ -68,7 +68,32 @@ const courseService = {
 
   bookmarkCourse: {},
 
-  likeCourse: {},
+  checkIfLiked: async(course_uid) => {
+    try{
+      const response = await axios.get(`${API_BASE_URL}/like/${course_uid}`, {headers: headers})
+      return response.data
+    } catch (error) {
+      throw error
+    }
+  },
+
+  likeCourse: async(course_uid) => {
+    try{
+      const response = await axios.post(`${API_BASE_URL}/like/${course_uid}`,{} ,{headers: headers})
+      return response.data
+    } catch (error) {
+      throw error
+    }
+  },
+
+  unLikeCourse: async(course_uid) => {
+    try{
+      const response = await axios.delete(`${API_BASE_URL}/like/${course_uid}`,{headers: headers})
+      return response.data
+    } catch (error) {
+      throw error
+    }
+  },
 }
 
 export default courseService;

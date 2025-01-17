@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import { Button, Input } from '..';
 import { useNavigate } from 'react-router-dom';
 import courseService from '../../modules/courseService';
+import tagService from '../../modules/tagService';
+import { MdCancel } from "react-icons/md";
 
 const AddCourseTemplate = () => {
   // FOR TAGS
   const [tags, setTags] = useState([]);
+  const [queryTags, setQueryTags] = useState([]);
   const [inputValue, setInputValue] = useState('');
-
+  const [courseType, setCourseType] = useState('video')
   // FOR COURSES
   const [courses, setCourses] = useState({
     video_1: '',
@@ -52,12 +55,37 @@ const AddCourseTemplate = () => {
     } 
   };
 
+
+  //Get All Query Tags
+  const fetchTags = async() => {
+    if (inputValue != ''){
+      const res = await tagService.getTagName(inputValue)
+      setQueryTags(res)
+    }
+  }
+
+  //ONCLICK TAG
+  const onClickTag = (tag_name) => {
+    setInputValue(tag_name)
+    setTags([...tags, tag_name]);
+    setInputValue('');
+    setQueryTags(null)
+  }
+
+  //////THERE IS A BUG HERE
+  //DELETE TAG
+  const deleteTag = (index) => {
+    setTags((prevTags) => prevTags.filter(tag => tag.id !== index));
+  };
+
+
   // ONSUBMIT HANDLER
   const onSubmit = async (e) => {
     e.preventDefault();
 
     const data = {}
     data['title'] = formData.title
+    data['type'] = courseType
     data['description'] = formData.description
     data['thumbnail'] = formData.thumbnail
     data['courses'] = courses
@@ -67,10 +95,9 @@ const AddCourseTemplate = () => {
 
     try {
       const response = await courseService.createCourse(data)
-      console.log(response)
 
       alert('Course created successfully');
-      navigate('/courses');
+      navigate(`/course/${response.uid}`);
     } catch (error) {
       console.error(error);
       alert(error.response?.data?.message || 'An error occurred');
@@ -146,8 +173,9 @@ const AddCourseTemplate = () => {
           <form onSubmit={handleTagSubmit} className='w-full flex gap-2 flex-col'>
             <div className='flex flex-wrap gap-2'>
               {tags.map((tag, index) => (
-                <span key={index}>
+                <span key={index} className='relative'>
                   <Button type='grey-bg' size='small' text={tag} />
+                  <MdCancel onClick={() => {deleteTag(index)}} className='absolute top-0 right-0 icon cursor-pointer'/>
                 </span>
               ))}
             </div>
@@ -157,10 +185,18 @@ const AddCourseTemplate = () => {
                 type="text"
                 value={inputValue}
                 onChange={handleInputChange}
+                onKeyDown={fetchTags}
                 placeholder="Enter tags..."
               />
               <Button buttonFormType='submit' type='primary' text={'Add Tag'} onClick={handleTagSubmit} className={'text-nowrap'}/>
             </div>
+            {queryTags && <ul>
+              {queryTags.map((tag) => (
+                <li key={tag.id} onClick={() =>{onClickTag(tag.name)}} className='p-2 font-lato font-light text-sm hover:bg-gray-200 cursor-pointer'>
+                  {tag.name}
+                </li>
+              ))}
+            </ul>}
           </form>
 
           <Button buttonFormType='submit' text={'Create Course'} type='primary' />

@@ -1,4 +1,4 @@
-import { Home, Login, Signup, Feed, CourseView, Featured, MyLearning, BookMark, Notification, AddCourse, ViewCourses, AddEditor, AddAdmin, AllEditors, AllAdmins, AllCourses, LegalDictionary, Settings } from './pages'
+import { Home, Login, Signup, Feed, CourseView, Featured, MyLearning, BookMark, Notification, AddCourse, ViewCourses, AddEditor, AddAdmin, AllEditors, AllAdmins, AllCourses, LegalDictionary, Settings, Categories, CategoryFeed, Logout } from './pages'
 import { Routes, Route } from 'react-router-dom';
 
 
@@ -12,6 +12,8 @@ function App() {
 
 
         <Route path="/feed" element={<Feed />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/category/:tag_id" element={<CategoryFeed />} />
         <Route path="/course/:course_uid" element={<CourseView />} />
         <Route path="/featured" element={<Featured />} />
         <Route path="/mylearning" element={<MyLearning />} />
@@ -30,9 +32,11 @@ function App() {
         <Route path="/allcourses" element={<AllCourses />} />
 
 
-        <Route path="/dictionary" element={<LegalDictionary />} />
+        <Route path="/dictionary/:term" element={<LegalDictionary />} />
 
         <Route path="/settings" element={<Settings />} />
+
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </>
   );

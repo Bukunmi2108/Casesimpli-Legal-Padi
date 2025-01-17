@@ -4,10 +4,11 @@ const API_BASE_URL = "http://localhost:8000/api/v1"; // backend's URL
 
 const authService = {
   login: async (email, password) => {
-    authService.logout()
+    localStorage.removeItem('token');
     try {
       const response = await axios.post(`${API_BASE_URL}/user/login`, { email, password });
       localStorage.setItem('token', response.data.access_token); // Store token in local storage
+
       return response.data;
     } catch (error) {
       console.error('Login failed:', error);
@@ -16,9 +17,9 @@ const authService = {
   },
 
   register: async (userData) => {
-    authService.logout()
+    localStorage.removeItem('token');
     try {
-      const response = await axios.post(`${API_BASE_URL}/user/register`, userData);
+      const response = await axios.post(`${API_BASE_URL}/user/signup`, userData);
       return response.data;
     } catch (error) {
       console.error('Registration failed:', error);
@@ -30,18 +31,20 @@ const authService = {
     localStorage.removeItem('token');
   },
 
-  getToken: () => {
+  getToken: async() => {
+    await new Promise(resolve => setTimeout(resolve, 2000)); 
+
     return localStorage.getItem('token');
   },
 
-  getAuthHeader: () => {
-    const token = authService.getToken();
+  getAuthHeader: async() => {
+    const token = await authService.getToken();
     return {Authorization: `Bearer ${token}`}
   },
 
   // Helper function to set Authorization header in requests
-  setAuthToken: (config) => {
-    const token = authService.getToken();
+  setAuthToken: async(config) => {
+    const token = await authService.getToken();
     if (token) {
       config.headers['Authorization'] = `Bearer ${token}`;
     }
@@ -49,7 +52,7 @@ const authService = {
   },
 
   getRole: async () => {
-    const headers = authService.getAuthHeader();
+    const headers = await authService.getAuthHeader();
 
     try{
       const response = await axios.get(`${API_BASE_URL}/user/role`,
@@ -60,6 +63,35 @@ const authService = {
       return error
     }
   },
+
+  getUser: async() => {
+    const headers = await authService.getAuthHeader();
+
+    try{
+      const response = await axios.get(`${API_BASE_URL}/user/profile`,
+      {headers: headers}
+      )
+      return response.data
+    } catch (error) {
+      return error
+    }
+  },
+
+  updateUser: async(userInfo) => {
+    const headers = await authService.getAuthHeader();
+
+    try{
+      const response = await axios.put(`${API_BASE_URL}/user/update_user`, userInfo,
+      {headers: headers}
+      )
+      if (response.status !== 200) {
+        alert('An Error occured')
+      }
+      return response.data
+    } catch (error) {
+      return error
+    }
+  }
 };
 
 export default authService;

@@ -61,7 +61,7 @@ const Nav = () => {
   const userMenuItems = [
   { text: 'Home', icon: <IoHomeSharp className='icon' />, link: '/feed' },
   { text: 'De Law AI', icon: <FaRobot className='icon' />, link: '/feed' },
-  { text: 'All Categories', icon: <MdCategory className='icon' />, link: '/feed' },
+  { text: 'All Categories', icon: <MdCategory className='icon' />, link: '/categories' },
   { text: 'Call a Lawyer', icon: <IoIosCall className='icon' />, link: '/feed' },
   { text: 'Settings', icon: <IoIosSettings className='icon' />, link: '/settings' },
   ];
@@ -116,8 +116,10 @@ const Nav = () => {
       {role === "admin" && <div className='flex flex-col gap-2 justify-start items-start w-full'>
         {renderSection('Admin', adminMenuItems)}
       </div>}
-      
-      <Sidelink text={'Logout'} type='primary' icon={<IoMdLogOut className='icon text-primary-orange'/> }/>
+
+      <Link to={'/logout'} className='w-full'>
+        <Sidelink text={'Logout'} type='primary' icon={<IoMdLogOut className='icon text-primary-orange'/> }/>
+      </Link>
     </nav>
   </header>
   )

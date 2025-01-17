@@ -35,6 +35,8 @@ export { default as BookMarkTemplate } from './templates/BookMarkTemplate'
 export { default as NotificationTemplate } from './templates/NotificationTemplate'
 export { default as AddCourseTemplate } from './templates/AddCourseTemplate'
 export { default as ViewCoursesTemplate } from './templates/ViewCoursesTemplate'
+export { default as CategoriesTemplate } from './templates/CategoriesTemplate'
+export { default as CourseCategoryFeedTemplate } from './templates/CourseCategoryFeedTemplate'
 
 export { default as AddEditorTemplate } from './templates/AddEditorTemplate'
 export { default as AllEditorsTemplate } from './templates/AllEditorsTemplate'

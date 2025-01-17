@@ -29,13 +29,13 @@ const CourseDisplay = ({title, author, course_uid, thumbnail, likes, link, tags}
             <h5 className='text-sm font-light font-lato'>By {author}</h5>
             <div className='flex items-center justify-start gap-2'>
               <FcLike />
-              <span>300</span>
+              <span>{likes}</span>
             </div>
           </div>
 
           {tags && <div className='flex gap-2'>
             {tags.map(({id, name}) => (
-              <Button key={id} text={name} type='grey-bg' size='small' className={'w-fit'}/>
+              <Button key={id} text={name}  link={`/category/${id}`} type='grey-bg' size='small' className={'w-fit'}/>
             ))}
           </div>}
         </div>

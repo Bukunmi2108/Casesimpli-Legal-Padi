@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 import { Button } from '..'
-import { FcLike } from "react-icons/fc";
+import { FcLike, FcLikePlaceholder } from "react-icons/fc";
 import { CiBookmark } from "react-icons/ci";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { useParams } from 'react-router-dom';
@@ -17,14 +17,26 @@ const CourseViewTemplate = () => {
   const [currentVideo, setCurrentVideo] = useState('')
   const [contentDropdown, setContentDropdown] = useState(false)
   const {course_uid} = useParams()
+  const [liked, setLiked] = useState(false)
+  const [likes, setLikes] = useState(0)
 
   useEffect(() => {
     const fetchCourse = async() => {
-      const res = await courseService.getACourse(course_uid)
+      const res = await courseService.getACourse(course_uid)      
       setCourse(res)
       setCourseVideos(res.courses)
-      const firstVideo = Object.entries(res.courses)[0][1]
+      setTags(res.tags)
+      setLikes(res.likes_count)
+
+      // Set like
+      const likeState = await courseService.checkIfLiked(res.uid)
+      console.log(likeState)
+      if (likeState === false) {setLiked(false)} else {setLiked(true)}
       
+      
+      // Set video
+      const firstVideo = Object.entries(res.courses)[0][1]
+  
       const urlCheck = courseService.watchUrlToEmbedUrl(firstVideo)
       if (urlCheck) {
         setCurrentVideo(urlCheck)
@@ -33,24 +45,28 @@ const CourseViewTemplate = () => {
       }
     }
 
-    const fetchTags = async() => {
-      const res = await courseService.getCourseTags(course_uid)
-      setTags(res)
-    }
-
     fetchCourse()
-    fetchTags()
-  }, [])
+  }, [course_uid])
 
   
   const handleContentDropdown = () => {
     setContentDropdown(!contentDropdown)
   }
 
-  const onVideoChange = (url) => {
-    const urlCheck = courseService.watchUrlToEmbedUrl(url)
-      if (urlCheck) {setCurrentVideo(urlCheck)} else {setCurrentVideo(url)}}
+  const likeCourse = async() => {
+    setLiked(true)
+    setLikes(prevLike => prevLike + 1)
+    const res = await courseService.likeCourse(course.uid)
+    alert(res);
+    
+  }
 
+  const unLikeCourse = async() => {
+    setLiked(false)
+    setLikes(prevLike => prevLike - 1)
+    const res = await courseService.unLikeCourse(course.uid)
+    alert('Unlike');
+  }
   return (
     <main className='main divide-y divide-primary-text'>
       <section className='max-w-7xl mx-auto pb-8'> 
@@ -102,8 +118,8 @@ const CourseViewTemplate = () => {
 
             <div className='flex flex-row items-center justify-between w-full my-2'>
               <div className='flex items-center justify-start gap-2'>
-                <FcLike />
-                <span>300</span>
+                <span>{!liked? <FcLikePlaceholder onClick={likeCourse} className='icon' />:<FcLike onClick={unLikeCourse} className='icon' />}</span>
+                <span>{likes}</span>
               </div>
               <CiBookmark className='icon'/>
 
@@ -112,7 +128,7 @@ const CourseViewTemplate = () => {
 
           {tags && <div className='flex gap-2 flex-wrap'>
             {tags.map(({name, id}) => (
-              <Button key={id} text={name} type='grey-bg' size='small' className={'w-fit'}/>
+              <Button  link={`/category/${id}`} key={id} text={name} type='grey-bg' size='small' className={'w-fit'}/>
             ))}
           </div>}
         </div>

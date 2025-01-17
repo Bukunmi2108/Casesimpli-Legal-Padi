@@ -24,7 +24,7 @@ const Login = () => {
       alert('Login successful');
       navigate('/feed');
     } catch (error) {
-      alert('Login failed')
+      alert(error.response.data.message)
       console.error(error);
     }
     
