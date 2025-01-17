@@ -1,7 +1,7 @@
 import axios from "axios";
 import authService from "./authService";
 
-const API_BASE_URL = "http://localhost:8000/api/v1"; // backend's URL
+const API_BASE_URL = "https://casesimpli-legalpadi-backend.onrender.com/api/v1"; // backend's URL
 const headers = await authService.getAuthHeader()
 
 const tagService = {

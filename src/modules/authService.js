@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = "http://localhost:8000/api/v1"; // backend's URL
+const API_BASE_URL = "https://casesimpli-legalpadi-backend.onrender.com/api/v1"; // backend's URL
 
 const authService = {
   login: async (email, password) => {
