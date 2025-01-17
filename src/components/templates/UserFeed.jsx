@@ -3,22 +3,23 @@ import { SearchInput, Button, CourseDisplay } from '../../components'
 import { FaSearch } from "react-icons/fa";
 import courseService from '../../modules/courseService';
 import dictionaryService from '../../modules/dictionaryService';
+import authService from '../../modules/authService';
 import { useNavigate } from 'react-router-dom';
 
 const UserFeed = () => {
   const [ courses, setCourses ] = useState([])
   const [dictionary, setDictionary] = useState({})
   const navigate = useNavigate()
-  const username = 'Bukunmi'
+  const [username, setUsername] = useState('')
 
-
-  useEffect(() => {
-    const fetchCourses = async() => {
-      const res = await courseService.getAllCourses()
-      setCourses(res)
-    }
-    fetchCourses()
-  }, [])
+  const fetchUsername = async() => {
+    const res = await authService.getUser()
+    setUsername(res.first_name)
+  }
+  const fetchCourses = async() => {
+    const res = await courseService.getAllCourses()
+    setCourses(res)
+  }
 
   const fetchRandomWord = async() => {
     const res = await dictionaryService.getRandomWord()
@@ -26,6 +27,8 @@ const UserFeed = () => {
   }
 
   useEffect(() => {
+    fetchUsername()
+    fetchCourses()
     fetchRandomWord()
   }, [])
 
@@ -72,13 +75,13 @@ const UserFeed = () => {
 
         <div className='mt-8 flex flex-col items-start justify-center w-full'>
           <h2 className='h-lg'>Start Learning</h2>
-          {courses? <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-4 w-full mt-8'>
+          {courses && <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-4 w-full mt-8'>
             {
               courses.map((course) => (
                 <CourseDisplay key={course.uid} author={`${course.user.first_name} ${course.user.last_name}`} course_uid={course.uid} thumbnail={course.thumbnail} title={course.title} tags={course.tags} likes={course.likes_count} />
               ))
             }
-          </div> : <h1 className='h-lg'>No Course to Display</h1>}
+          </div>}
         </div>
       </section>
     </main>
